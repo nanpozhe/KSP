@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.ui.VerifyFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:importantForAccessibility="no"
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/dummy_logo_icon"
+            tools:srcCompat="@drawable/dummy_logo_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/verify_message"
+            android:text="@string/verify_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            style="@style/Widget.KedahSmartParking.TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/verify_phone_layout"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone_number"
+                app:helperText="@string/phone_num_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/verify_message"
+                app:startIconDrawable="@drawable/ic_phone_number_icon"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/verify_phone_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/verify_dob_layout"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/dob_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/verify_phone_layout"
+                app:startIconDrawable="@drawable/ic_dob_icon"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/verify_dob_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/verify_ic_layout"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/last_four_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/verify_dob_layout"
+                app:startIconDrawable="@drawable/ic_last_four_digit_icon"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/verify_ic_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/verify_button"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/verify_btn"
+                android:textColor="@color/white"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/verify_ic_layout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/update_password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toBottomOf="@id/verify_ic_layout">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/new_password_layout"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:startIconDrawable="@drawable/ic_password_icon"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/new_password_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/password_hint"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/new_password_confirmation_layout"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/new_password_layout"
+                        app:startIconDrawable="@drawable/ic_password_icon"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/new_password_confirmation_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/confirm_pswd_hint"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/new_pswd_confirm_button"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirm_btn"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/new_password_confirmation_layout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <include
+                android:id="@+id/verify_progress"
+                layout="@layout/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="46dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

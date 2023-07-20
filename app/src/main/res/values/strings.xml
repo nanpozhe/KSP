@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Malaysia Parking System</string>
+    <!-- Sign In ~~ start here ~~ -->
+    <string name="login_msg">Login to your account</string>
+    <string name="register_msg">Create your new account</string>
+    <string name="fgt_pswd_title">Forgot Password</string>
+    <string name="chgn_pswd_title">Change Password</string>
+    <string name="new_user_msg">New user?</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_btn">Login</string>
+    <string name="register_btn">Sign Up</string>
+    <string name="sign_up_btn">Sign up</string>
+    <string name="verify_btn">Verify</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="phone_num_hint">(+60)123456789</string>
+    <string name="password_hint">Password</string>
+    <string name="fullname_hint">Enter your full name</string>
+    <string name="dob_hint">Date of Birth (yyyy-mm-dd)</string>
+    <string name="last_four_ic">Last 4 digits IC number</string>
+    <string name="confirm_pswd_hint">Password Confirmation</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="phone_helper">This phone number will be used as login credentials.</string>
+    <string name="verify_msg">Please verify yourself</string>
+    <string name="new_pswd_msg">Please set your new password</string>
+    <!-- Sign In ~~ end here ~~ -->
+    <string name="confirm_btn">Confirm</string>
+    <string name="dummy_user">User Full Name</string>
+    <string name="ewallet_credit">eWallet Credit:</string>
+    <string name="dummy_credit">RM 0.00</string>
+    <string name="reload_btn">Reload</string>
+    <string name="status">Status:</string>
+    <string name="dummy_status">Not Parking</string>
+    <string name="time_remaining_label">Time Remaining:</string>
+    <string name="time_remaining_value">null</string>
+    <!-- Actions ~~ start here ~~ -->
+    <string name="actions_label">Actions</string>
+    <string name="find_parking_label">Find Parking</string>
+    <string name="park_pay_label">Park N Pay</string>
+    <string name="compound_label">Compound</string>
+    <string name="season_pass_label">Season Pass</string>
+    <string name="council_label">Council</string>
+    <string name="vehicle_label">Vehicle</string>
+    <string name="history_label">History</string>
+    <string name="inbox_label">Inbox</string>
+    <!-- Settings -->
+    <string name="account_settings">Account Settings</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="password_setting">Password Settings</string>
+    <string name="app_pref">App Preferences</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="keep_logged_in">Keep Logged In</string>
+    <string name="log_out">Logout</string>
+    <!-- Council -->
+
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.KedahSmartParking.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:minHeight">@dimen/min_text_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="Widget.KedahSmartParking.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/BLUE_800</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="Widget.KedahSmartParking.Button.SettingsTextButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:padding">@dimen/setting_margin</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="Widget.KedahSmartParking.Button.ContainerButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/BLUE_800</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="iconSize">50sp</item>
+        <item name="iconTint">@color/BLUE_800</item>
+        <item name="iconGravity">textTop</item>
+        <item name="backgroundTint">@color/white_blue</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="elevation">20dp</item>
+    </style>
+</resources>
