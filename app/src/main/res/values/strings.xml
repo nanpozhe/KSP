@@ -51,6 +51,28 @@
     <string name="clear_cache">Clear Cache</string>
     <string name="keep_logged_in">Keep Logged In</string>
     <string name="log_out">Logout</string>
+    <!-- States -->
+    <string name="perlis">Perlis</string>
+    <string name="kedah">Kedah</string>
+    <string name="penang">Pinang</string>
+    <string name="perak">Perak</string>
+    <string name="selangor">Selangor</string>
     <!-- Council -->
-
+    <string name="mbpp">Majlis Bandaraya Pulau Pinang</string>
+    <string name="mbsp">Majlis Bandaraya Seberang Perai</string>
+    <string name="ipoh">Majlis Bandaraya Ipoh</string>
+    <string name="taiping">Majlis Perbandaran Taiping</string>
+    <string name="manjung">Majlis Perbandaran Manjung</string>
+    <string name="telukIntan">Majlis Perbandaran Teluk Intan</string>
+    <string name="kualaKangsar">Majlis Perbandaran Kuala Kangsar</string>
+    <string name="kampar">Majlis Daerah Kampar</string>
+    <string name="gerik">Majlis Daerah Gerik</string>
+    <string name="kerian">Majlis Daerah Kerian</string>
+    <string name="batuGajah">Majlis Daerah Batu Gajah</string>
+    <string name="perakTengah">Majlis Daerah Perak Tengah</string>
+    <string name="tanjongMalim">Majlis Daerah Tanjong Malim</string>
+    <string name="tapah">Majlis Daerah Tapah</string>
+    <string name="selama">Majlis Daerah Selama</string>
+    <string name="hulu">Majlis Daerah Pangkalan Hulu</string>
+    <string name="lenggong">Majlis Daerah Lenggong</string>
 </resources>

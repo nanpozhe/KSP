@@ -16,6 +16,10 @@ import com.example.ksp.presentation.viewmodel.UpdtPswdViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/**
+ * no using this fragment
+  */
+
 @AndroidEntryPoint
 class UpdtPswdFragment : Fragment() {
 

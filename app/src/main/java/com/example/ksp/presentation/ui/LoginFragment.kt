@@ -1,6 +1,7 @@
 package com.example.ksp.presentation.ui
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils.replace
 import android.util.Log
@@ -69,11 +70,14 @@ class LoginFragment : Fragment() {
                         loginBinding.signUpNow.isEnabled = true
                         Log.d("MainActivity","LoginFragment -> DATA SENT $loginRequest")
                         //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                        parentFragmentManager.beginTransaction()
+                        /*parentFragmentManager.beginTransaction()
                             .replace(R.id.fragmentContainerView1, homeFragment)
                             .addToBackStack(null)
                             .commit()
-                        viewModel.navigateToPage()
+                        viewModel.navigateToPage()*/
+                        val intent = Intent(context, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
                     } else if (successful == false){
                         loginBinding.loginProgress.loadingProgress.visibility = View.GONE
                         loginBinding.loginButton.isEnabled = true

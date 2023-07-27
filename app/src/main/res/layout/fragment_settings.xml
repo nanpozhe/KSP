@@ -90,9 +90,9 @@
             android:layout_marginStart="@dimen/setting_margin"
             android:layout_marginEnd="@dimen/setting_margin"
             android:padding="@dimen/setting_margin"
-            android:onClick="@{() -> settingsFragment.logout()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/keep_logged_in"/>
+        <!--            android:onClick="@{() -> settingsFragment.logout()}" -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

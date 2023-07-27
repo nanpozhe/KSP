@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import com.example.ksp.R
+import com.example.ksp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,10 +15,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         supportActionBar?.setDisplayShowTitleEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        setContentView(R.layout.activity_main)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

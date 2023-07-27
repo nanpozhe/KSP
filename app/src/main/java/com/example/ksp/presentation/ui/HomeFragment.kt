@@ -46,11 +46,11 @@ class HomeFragment : Fragment() {
         homeBinding.userFullName.setText(homeViewModel.username)
     }
 
-    override fun onResume() {
+/*    override fun onResume() {
         super.onResume()
         parentFragmentManager.popBackStack(R.id.action_loginFragment_to_homeFragment, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
-
+*/
     fun toSettingsPage(){
         findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
     }

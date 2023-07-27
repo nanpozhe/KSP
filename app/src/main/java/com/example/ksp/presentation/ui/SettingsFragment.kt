@@ -48,8 +48,9 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    fun logout(){
+/*    fun logout(){
         viewModel.unSaveUserLoggedIn()
         findNavController().navigate(R.id.action_settingsFragment_to_loginFragment)
     }
+*/
 }
