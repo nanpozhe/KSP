@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.CouncilFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/penang_state_title"
+            style="@style/Widget.KedahSmartParking.TextView.CouncilTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/setting_margin"
+            android:text="@string/penang"
+            app:layout_constraintBottom_toTopOf="@id/penang_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RadioGroup
+            android:id="@+id/penang_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/penang_state_title">
+            <RadioButton
+                android:id="@+id/mbpp_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/mbpp" />
+            <RadioButton
+                android:id="@+id/mbsp_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/mbsp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/perak_state_title"
+            style="@style/Widget.KedahSmartParking.TextView.CouncilTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/setting_margin"
+            android:text="@string/perak" />
+        <RadioGroup
+            android:id="@+id/perak_state"
+            android:layout_width="match_parent"
+            android:layout_height="757dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/penang_state_title">
+            <RadioButton
+                android:id="@+id/ipoh_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/ipoh" />
+            <RadioButton
+                android:id="@+id/kampar_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/kampar" />
+            <RadioButton
+                android:id="@+id/taiping_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/taiping" />
+            <RadioButton
+                android:id="@+id/manjung_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/manjung" />
+            <RadioButton
+                android:id="@+id/teluk_intan_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/telukIntan" />
+            <RadioButton
+                android:id="@+id/batu_gajah_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/batuGajah" />
+            <RadioButton
+                android:id="@+id/kuala_kangsar_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/kualaKangsar" />
+            <RadioButton
+                android:id="@+id/gerik_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/gerik" />
+            <RadioButton
+                android:id="@+id/kerian_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/kerian" />
+            <RadioButton
+                android:id="@+id/perak_tengah_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/perakTengah" />
+            <RadioButton
+                android:id="@+id/tanjong_malim_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/tanjongMalim" />
+            <RadioButton
+                android:id="@+id/tapah_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/tapah" />
+            <RadioButton
+                android:id="@+id/selama_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/selama" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/selangor_state_title"
+            style="@style/Widget.KedahSmartParking.TextView.CouncilTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/setting_margin"
+            android:text="@string/penang"
+            app:layout_constraintBottom_toTopOf="@id/selangor_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RadioGroup
+            android:id="@+id/selangor_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/subang_jaya_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/subangJaya" />
+            <RadioButton
+                android:id="@+id/shah_alam_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/shahAlam" />
+            <RadioButton
+                android:id="@+id/petaling_jaya_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/petalingJaya" />
+        </RadioGroup>
+    </LinearLayout>
+</layout>
