@@ -75,4 +75,14 @@
     <string name="selama">Majlis Daerah Selama</string>
     <string name="hulu">Majlis Daerah Pangkalan Hulu</string>
     <string name="lenggong">Majlis Daerah Lenggong</string>
+    <string name="subangJaya">Majlis Bandaraya Subang Jaya</string>
+    <string name="shahAlam">Majlis Bandaraya Shah Alam</string>
+    <string name="petalingJaya">Majlis Bandaraya Petaling Jaya</string>
+    <string name="kajang">Majlis Perbandaraya Kajang</string>
+    <string name="ampangJaya">Majlis Perbandaraya Ampang Jaya</string>
+    <string name="selayang">Majlis Perbandaraya Selayang</string>
+    <string name="sepang">Majlis Perbandaraya Sepang</string>
+    <string name="kualaSelangor">Majlis Perbandaraya Kuala Selangor</string>
+    <string name="klang">Majlis Perbandaraya Klang</string>
+    <string name="kualaLangat">Majlis Perbandaraya Kuala Langat</string>
 </resources>

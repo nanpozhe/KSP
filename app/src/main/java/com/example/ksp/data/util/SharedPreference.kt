@@ -41,4 +41,21 @@ class SharedPreference @Inject constructor(
     fun saveUserKeepLoggedIn(choice: Boolean){
         sharedPreferences.edit().putBoolean(Constants.USER_KEEP_LOGGED_IN, choice).apply()
     }
+
+    fun councilIsSelected(): Boolean {
+        val token = sharedPreferences.getString(Constants.COUNCIL_SELECTED, null)
+        return token != null
+    }
+    fun getCouncilSelected(): String{
+        return sharedPreferences.getString(Constants.COUNCIL_SELECTED, "").toString()
+    }
+
+    fun saveCouncilSelected(council: String){
+        sharedPreferences.edit().putString(Constants.COUNCIL_SELECTED, council).apply()
+    }
+
+    fun deleteCouncilSaved(): Boolean {
+        sharedPreferences.edit().remove(Constants.COUNCIL_SELECTED).apply()
+        return councilIsSelected()
+    }
 }
