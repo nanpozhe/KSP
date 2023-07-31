@@ -85,4 +85,37 @@
     <string name="kualaSelangor">Majlis Perbandaraya Kuala Selangor</string>
     <string name="klang">Majlis Perbandaraya Klang</string>
     <string name="kualaLangat">Majlis Perbandaraya Kuala Langat</string>
+    <string-array name="penang_council_array">
+        <item>Majlis Bandaraya Pulau Pinang</item>
+        <item>Majlis Bandaraya Seberang Perai</item>
+    </string-array>
+    <string-array name="perak_council_array">
+        <item>Majlis Bandaraya Ipoh</item>
+        <item>Majlis Perbandaran Taiping</item>
+        <item>Majlis Perbandaran Manjung</item>
+        <item>Majlis Perbandaran Teluk Intan</item>
+        <item>Majlis Perbandaran Kuala Kangsar</item>
+        <item>Majlis Daerah Kampar</item>
+        <item>Majlis Daerah Gerik</item>
+        <item>Majlis Daerah Kerian</item>
+        <item>Majlis Daerah Batu Gajah</item>
+        <item>Majlis Daerah Perak Tengah</item>
+        <item>Majlis Daerah Tanjong Malim</item>
+        <item>Majlis Daerah Tapah</item>
+        <item>Majlis Daerah Selama</item>
+        <item>Majlis Daerah Pangkalan Hulu</item>
+        <item>Majlis Daerah Lenggong</item>
+    </string-array>
+    <string-array name="selangor_council_array">
+        <item>Majlis Bandaraya Subang Jaya</item>
+        <item>Majlis Bandaraya Shah Alam</item>
+        <item>Majlis Bandaraya Petaling Jaya</item>
+        <item>Majlis Perbandaraya Kajang</item>
+        <item>Majlis Perbandaraya Ampang Jaya</item>
+        <item>Majlis Perbandaraya Selayang</item>
+        <item>Majlis Perbandaraya Sepang</item>
+        <item>Majlis Perbandaraya Kuala Selangor</item>
+        <item>Majlis Perbandaraya Klang</item>
+        <item>Majlis Perbandaraya Kuala Langat</item>
+    </string-array>
 </resources>

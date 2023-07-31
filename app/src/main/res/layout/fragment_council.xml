@@ -5,6 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ui.CouncilFragment">
 
+    <data>
+        <variable
+            name="councilFragment"
+            type="com.example.ksp.presentation.ui.CouncilFragment" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

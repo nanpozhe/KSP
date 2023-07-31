@@ -3,8 +3,11 @@ package com.example.ksp.presentation.ui
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.core.content.ContextCompat
 import com.example.ksp.R
 import com.example.ksp.databinding.ActivityMainBinding

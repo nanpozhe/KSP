@@ -42,20 +42,38 @@ class SharedPreference @Inject constructor(
         sharedPreferences.edit().putBoolean(Constants.USER_KEEP_LOGGED_IN, choice).apply()
     }
 
-    fun councilIsSelected(): Boolean {
-        val token = sharedPreferences.getString(Constants.COUNCIL_SELECTED, null)
+    /** COUNCIL #ID# APP PREF **/
+    fun councilIdIsSelected(): Boolean {
+        val token = sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0)
+        return token != 0
+    }
+    fun getCouncilSelectedId(): String{
+        return sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0).toString()
+    }
+
+    fun saveCouncilSelectedId(id: Int){
+        sharedPreferences.edit().putInt(Constants.COUNCIL_ID_SELECTED, id).apply()
+    }
+
+    fun deleteCouncilSavedId(): Boolean {
+        sharedPreferences.edit().remove(Constants.COUNCIL_ID_SELECTED).apply()
+        return councilIdIsSelected()
+    }
+    /** COUNCIL #NAME# APP PREF **/
+    fun councilNameIsSaved(): Boolean {
+        val token = sharedPreferences.getString(Constants.COUNCIL_ID_SELECTED, null)
         return token != null
     }
-    fun getCouncilSelected(): String{
-        return sharedPreferences.getString(Constants.COUNCIL_SELECTED, "").toString()
+    fun getCouncilName(): String{
+        return sharedPreferences.getString(Constants.COUNCIL_ID_SELECTED, null).toString()
     }
 
-    fun saveCouncilSelected(council: String){
-        sharedPreferences.edit().putString(Constants.COUNCIL_SELECTED, council).apply()
+    fun saveCouncilName(council: String){
+        sharedPreferences.edit().putString(Constants.COUNCIL_ID_SELECTED, council).apply()
     }
 
-    fun deleteCouncilSaved(): Boolean {
-        sharedPreferences.edit().remove(Constants.COUNCIL_SELECTED).apply()
-        return councilIsSelected()
+    fun deleteCouncilSavedName(): Boolean {
+        sharedPreferences.edit().remove(Constants.COUNCIL_ID_SELECTED).apply()
+        return councilNameIsSaved()
     }
 }
