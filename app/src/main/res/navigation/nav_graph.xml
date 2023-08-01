@@ -17,6 +17,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_councilFragment"
+            app:destination="@id/councilFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -25,6 +28,17 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/councilFragment"
+        android:name="com.example.ksp.presentation.ui.CouncilFragment"
+        android:label="fragment_council"
+        tools:layout="@layout/fragment_council" >
+        <action
+            android:id="@+id/action_councilFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />

@@ -54,4 +54,8 @@ class HomeFragment : Fragment() {
     fun toSettingsPage(){
         findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
     }
+
+    fun toCouncilPage(){
+        findNavController().navigate(R.id.action_homeFragment_to_councilFragment)
+    }
 }

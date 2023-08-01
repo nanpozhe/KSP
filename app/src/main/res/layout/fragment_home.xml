@@ -177,6 +177,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/council_label"
+                android:onClick="@{() -> homeFragment.toCouncilPage()}"
                 app:icon="@drawable/ic_council"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/vehicle_action"
