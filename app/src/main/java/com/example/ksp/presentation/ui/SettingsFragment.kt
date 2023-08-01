@@ -1,5 +1,6 @@
 package com.example.ksp.presentation.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,9 +49,11 @@ class SettingsFragment : Fragment() {
         }
     }
 
-/*    fun logout(){
+    fun logout(){
         viewModel.unSaveUserLoggedIn()
-        findNavController().navigate(R.id.action_settingsFragment_to_loginFragment)
+        val intent = Intent(context, AuthActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
-*/
+
 }
