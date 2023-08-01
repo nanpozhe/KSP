@@ -42,5 +42,47 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_councilFragment_to_penangCouncilFragment"
+            app:destination="@id/penangCouncilFragment" />
+        <action
+            android:id="@+id/action_councilFragment_to_perakCouncilFragment"
+            app:destination="@id/perakCouncilFragment2" />
+        <action
+            android:id="@+id/action_councilFragment_to_selangorCouncilFragment"
+            app:destination="@id/selangorCouncilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/penangCouncilFragment"
+        android:name="com.example.ksp.presentation.ui.council.PenangCouncilFragment"
+        android:label="fragment_penang_council"
+        tools:layout="@layout/fragment_penang_council" >
+        <action
+            android:id="@+id/action_penangCouncilFragment_to_councilFragment"
+            app:destination="@id/councilFragment"
+            app:popUpTo="@id/councilFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/perakCouncilFragment2"
+        android:name="com.example.ksp.presentation.ui.council.PerakCouncilFragment"
+        android:label="fragment_perak_council"
+        tools:layout="@layout/fragment_perak_council" >
+        <action
+            android:id="@+id/action_perakCouncilFragment2_to_councilFragment"
+            app:destination="@id/councilFragment"
+            app:popUpTo="@id/councilFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/selangorCouncilFragment"
+        android:name="com.example.ksp.presentation.ui.council.SelangorCouncilFragment"
+        android:label="fragment_selangor_council"
+        tools:layout="@layout/fragment_selangor_council" >
+        <action
+            android:id="@+id/action_selangorCouncilFragment_to_councilFragment"
+            app:destination="@id/councilFragment"
+            app:popUpTo="@id/councilFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.council.PenangCouncilFragment">
+
+    <data>
+        <variable
+            name="penangCouncilFragment"
+            type="com.example.ksp.presentation.ui.council.PenangCouncilFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/setting_margin">
+        <TextView
+            android:id="@+id/penang_state_title"
+            style="@style/Widget.KedahSmartParking.TextView.CouncilTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/setting_margin"
+            android:text="@string/penang"
+            app:layout_constraintBottom_toTopOf="@id/penang_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RadioGroup
+            android:id="@+id/penang_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/penang_state_title">
+            <RadioButton
+                android:id="@+id/mbpp_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/mbpp" />
+            <RadioButton
+                android:id="@+id/mbsp_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/mbsp" />
+        </RadioGroup>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_btn"
+            android:layout_margin="@dimen/setting_margin"/>
+    </LinearLayout>
+</layout>
