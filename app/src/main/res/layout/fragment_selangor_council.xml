@@ -7,8 +7,8 @@
 
     <data>
         <variable
-            name="penangCouncilFragment"
-            type="com.example.ksp.presentation.ui.council.PenangCouncilFragment" />
+            name="selangorCouncilFragment"
+            type="com.example.ksp.presentation.ui.council.SelangorCouncilFragment" />
     </data>
 
     <LinearLayout
@@ -51,11 +51,61 @@
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
                 android:text="@string/petalingJaya" />
+            <RadioButton
+                android:id="@+id/kajang_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/kajang" />
+            <RadioButton
+                android:id="@+id/ampang_jaya_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/ampangJaya" />
+            <RadioButton
+                android:id="@+id/selayang_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/selayang" />
+            <RadioButton
+                android:id="@+id/sepang_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/sepang" />
+            <RadioButton
+                android:id="@+id/klang_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/klang" />
+            <RadioButton
+                android:id="@+id/kuala_selangor_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/kualaSelangor" />
+            <RadioButton
+                android:id="@+id/kuala_langat_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:layoutDirection="rtl"
+                android:text="@string/kualaLangat" />
         </RadioGroup>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/confirm_btn"
-            android:layout_margin="@dimen/setting_margin"/>
+            android:layout_margin="@dimen/setting_margin"
+            android:onClick="@{() -> selangorCouncilFragment.onRadioButtonClicked()}"/>
     </LinearLayout>
 </layout>

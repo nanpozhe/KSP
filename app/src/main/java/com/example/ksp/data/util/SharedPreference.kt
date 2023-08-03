@@ -47,8 +47,8 @@ class SharedPreference @Inject constructor(
         val token = sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0)
         return token != 0
     }
-    fun getCouncilSelectedId(): String{
-        return sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0).toString()
+    fun getCouncilSelectedId(): Int{
+        return sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0)
     }
 
     fun saveCouncilSelectedId(id: Int){

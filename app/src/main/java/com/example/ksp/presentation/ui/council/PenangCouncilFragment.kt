@@ -1,14 +1,17 @@
 package com.example.ksp.presentation.ui.council
 
-import androidx.lifecycle.ViewModelProvider
+import PenangCouncilViewModel
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.fragment.app.viewModels
 import com.example.ksp.R
-import com.example.ksp.presentation.viewmodel.council.PenangCouncilViewModel
+import com.example.ksp.databinding.FragmentPenangCouncilBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,22 +21,18 @@ class PenangCouncilFragment : Fragment() {
         fun newInstance() = PenangCouncilFragment()
     }
 
-    private lateinit var viewModel: PenangCouncilViewModel
+    val viewModel: PenangCouncilViewModel by viewModels()
+    private lateinit var penangCouncilBinding: FragmentPenangCouncilBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_penang_council, container, false)
+        val fragmentBinding = FragmentPenangCouncilBinding.inflate(inflater, container, false)
+        penangCouncilBinding = fragmentBinding
+        return fragmentBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PenangCouncilViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
-    // TODO: modify this to check which council to save
     fun onRadioButtonClicked(view: View){
         if(view is RadioButton){
             // Is the button now checked?
@@ -41,16 +40,19 @@ class PenangCouncilFragment : Fragment() {
 
             // Check which radio button was clicked
             when (view.getId()) {
-                R.id. ->
+                R.id.mbpp_btn ->
                     if (checked) {
-                        // Pirates are the best
+                        viewModel.saveCouncil(id = R.id.mbpp_btn, name = resources.getString(R.string.mbpp))
                     }
-                R.id. ->
+                R.id.mbsp_btn ->
                     if (checked) {
-                        // Ninjas rule
+                        viewModel.saveCouncil(id = R.id.mbsp_btn, name = resources.getString(R.string.mbsp))
                     }
             }
+            val name = viewModel.getCouncilName()
+            val id = viewModel.getCouncilId()
+            Log.d("MainActivity", "Penang fragment -> $name && $id")
+            Snackbar.make(view, "$name is selected.", Snackbar.LENGTH_LONG).show()
         }
     }
-
 }

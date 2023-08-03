@@ -58,6 +58,7 @@
     <string name="perak">Perak</string>
     <string name="selangor">Selangor</string>
     <!-- Council -->
+    <string name="council_selected">Council Selected: </string>
     <string name="mbpp">Majlis Bandaraya Pulau Pinang</string>
     <string name="mbsp">Majlis Bandaraya Seberang Perai</string>
     <string name="ipoh">Majlis Bandaraya Ipoh</string>

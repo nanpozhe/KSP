@@ -51,6 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/confirm_btn"
-            android:layout_margin="@dimen/setting_margin"/>
+            android:layout_margin="@dimen/setting_margin"
+
+            android:onClick="@{() -> penangCouncilFragment.onRadioButtonClicked()}"/>
     </LinearLayout>
 </layout>

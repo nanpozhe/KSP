@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         // data bidding
         homeBinding.homeFragment = this
 
-        homeBinding.userFullName.setText(homeViewModel.username)
+        homeBinding.userFullName.text = homeViewModel.username
     }
 
 /*    override fun onResume() {

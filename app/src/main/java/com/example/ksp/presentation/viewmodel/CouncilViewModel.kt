@@ -3,6 +3,8 @@ package com.example.ksp.presentation.viewmodel
 import android.util.Log
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ksp.R
 import com.example.ksp.data.util.SharedPreference
@@ -14,6 +16,28 @@ import javax.inject.Inject
 class CouncilViewModel @Inject constructor(
     private val sharedPreference: SharedPreference
 ): ViewModel() {
+
+    private val _councilName = MutableLiveData<String>()
+    val councilName: LiveData<String> = _councilName
+
+    /** setter functions **/
+    fun setCouncilName(cn: String){
+        _councilName.value = cn
+    }
+
+    fun saveCouncil(id: Int, name: String) {
+        sharedPreference.saveCouncilSelectedId(id)
+        sharedPreference.saveCouncilName(councilName.value.orEmpty())
+    }
+
+    fun getCouncilName(): String{
+        return sharedPreference.getCouncilName()
+    }
+
+    fun getCouncilId(): Int{
+        return sharedPreference.getCouncilSelectedId()
+    }
+}
 
 /*    val councils = mutableMapOf<Int, String>()
 
@@ -63,9 +87,3 @@ class CouncilViewModel @Inject constructor(
             councils.put(radioButtonIds[i], allCouncilNames[i])
         }
     }  */
-
-    fun saveCouncil(id: Int, name: String){
-        sharedPreference.saveCouncilSelectedId(id)
-        sharedPreference.saveCouncilName(name)
-    }
-}
