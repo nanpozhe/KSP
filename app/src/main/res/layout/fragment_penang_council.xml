@@ -7,6 +7,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.ksp.presentation.viewmodel.CouncilViewModel" />
+        <variable
             name="penangCouncilFragment"
             type="com.example.ksp.presentation.ui.council.PenangCouncilFragment" />
     </data>
@@ -38,21 +41,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/mbpp" />
+                android:text="@string/mbpp"
+                android:checked="@{viewModel.councilName.equals(@string/mbpp)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/mbpp_btn, @string/mbpp)}"/>
             <RadioButton
                 android:id="@+id/mbsp_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/mbsp" />
+                android:text="@string/mbsp"
+                android:checked="@{viewModel.councilName.equals(@string/mbsp)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/mbsp_btn, @string/mbpp)}"/>
         </RadioGroup>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/confirm_btn"
             android:layout_margin="@dimen/setting_margin"
-
             android:onClick="@{() -> penangCouncilFragment.onRadioButtonClicked()}"/>
     </LinearLayout>
 </layout>

@@ -20,21 +20,39 @@ class CouncilViewModel @Inject constructor(
     private val _councilName = MutableLiveData<String>()
     val councilName: LiveData<String> = _councilName
 
+    private val _councilId = MutableLiveData<Int>()
+    val councilId: LiveData<Int> = _councilId
+
     /** setter functions **/
     fun setCouncilName(cn: String){
         _councilName.value = cn
     }
 
-    fun saveCouncil(id: Int, name: String) {
-        sharedPreference.saveCouncilSelectedId(id)
-        sharedPreference.saveCouncilName(councilName.value.orEmpty())
+    fun setCouncilId(id: Int){
+        _councilId.value = id
     }
 
-    fun getCouncilName(): String{
+    fun setCouncil(id: Int, name:String){
+        _councilId.value = id
+        Log.d("MainActivity", "Council VM -> DONE set _councilId")
+        _councilName.value = name
+        Log.d("MainActivity", "Council VM -> DONE set _councilName")
+    }
+
+    fun saveCouncil() {
+        councilId?.value?.let { sharedPreference.saveCouncilSelectedId(it) }
+        sharedPreference.saveCouncilName(councilName.value.orEmpty())
+        Log.d("MainActivity", "Council VM -> DONE saving to app pref")
+    }
+
+    fun getCouncilNameFromApp(): String{
+        Log.d("MainActivity", "Council VM -> retrieving council name from app")
         return sharedPreference.getCouncilName()
     }
 
-    fun getCouncilId(): Int{
+    //: TODO retreive id has issue
+    fun getCouncilIdFromApp(): Int{
+        Log.d("MainActivity", "Council VM -> retrieving council id from app")
         return sharedPreference.getCouncilSelectedId()
     }
 }

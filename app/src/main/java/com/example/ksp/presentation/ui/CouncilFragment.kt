@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ksp.R
@@ -19,8 +20,8 @@ class CouncilFragment : Fragment() {
         fun newInstance() = CouncilFragment()
     }
 
-    val viewModel: CouncilViewModel by viewModels()
-    private lateinit var councilBinding: FragmentCouncilBinding
+    val viewModel: CouncilViewModel by activityViewModels()
+    private var councilBinding: FragmentCouncilBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +30,11 @@ class CouncilFragment : Fragment() {
         val fragmentBinding = FragmentCouncilBinding.inflate(inflater, container, false)
         councilBinding = fragmentBinding
         return fragmentBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        councilBinding?.councilFragment = this
     }
 
     fun toPenangCouncilPage(){
@@ -41,6 +47,15 @@ class CouncilFragment : Fragment() {
 
     fun toSelangorCouncilPage(){
         findNavController().navigate(R.id.action_councilFragment_to_selangorCouncilFragment)
+    }
+
+    /**
+     * This fragment lifecycle method is called when the view hierarchy associated with the fragment
+     * is being removed. As a result, clear out the binding object.
+     */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        councilBinding = null
     }
 }
 

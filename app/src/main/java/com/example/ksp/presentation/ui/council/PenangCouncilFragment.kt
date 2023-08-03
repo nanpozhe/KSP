@@ -8,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.ksp.R
 import com.example.ksp.databinding.FragmentPenangCouncilBinding
+import com.example.ksp.presentation.viewmodel.CouncilViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,8 +24,8 @@ class PenangCouncilFragment : Fragment() {
         fun newInstance() = PenangCouncilFragment()
     }
 
-    val viewModel: PenangCouncilViewModel by viewModels()
-    private lateinit var penangCouncilBinding: FragmentPenangCouncilBinding
+    private val sharedViewModel: CouncilViewModel by activityViewModels()
+    private var penangCouncilBinding: FragmentPenangCouncilBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +36,23 @@ class PenangCouncilFragment : Fragment() {
         return fragmentBinding.root
     }
 
-    fun onRadioButtonClicked(view: View){
-        if(view is RadioButton){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        penangCouncilBinding?.apply {
+            // Specify the fragment as the lifecycle owner
+            lifecycleOwner = viewLifecycleOwner
+
+            // Assign the view model to a property in the binding class
+            viewModel = sharedViewModel
+
+            // Assign the fragment
+            penangCouncilFragment = this@PenangCouncilFragment
+        }
+    }
+
+    fun onRadioButtonClicked(){
+        /*if(view is RadioButton){
             // Is the button now checked?
             val checked = view.isChecked
 
@@ -42,17 +60,26 @@ class PenangCouncilFragment : Fragment() {
             when (view.getId()) {
                 R.id.mbpp_btn ->
                     if (checked) {
-                        viewModel.saveCouncil(id = R.id.mbpp_btn, name = resources.getString(R.string.mbpp))
+                        sharedViewModel.setCouncil(id = R.id.mbpp_btn, name = resources.getString(R.string.mbpp))
                     }
                 R.id.mbsp_btn ->
                     if (checked) {
-                        viewModel.saveCouncil(id = R.id.mbsp_btn, name = resources.getString(R.string.mbsp))
+                        sharedViewModel.setCouncil(id = R.id.mbsp_btn, name = resources.getString(R.string.mbsp))
                     }
-            }
-            val name = viewModel.getCouncilName()
-            val id = viewModel.getCouncilId()
+            }*/
+            sharedViewModel.saveCouncil()
+            val name = sharedViewModel.getCouncilNameFromApp()
+            val id = sharedViewModel.getCouncilIdFromApp()
             Log.d("MainActivity", "Penang fragment -> $name && $id")
-            Snackbar.make(view, "$name is selected.", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(requireView(), "$name is selected.", Snackbar.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_penangCouncilFragment_to_councilFragment)
         }
+    /**
+     * This fragment lifecycle method is called when the view hierarchy associated with the fragment
+     * is being removed. As a result, clear out the binding object.
+     */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        penangCouncilBinding = null
     }
 }

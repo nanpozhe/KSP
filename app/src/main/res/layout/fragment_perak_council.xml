@@ -7,6 +7,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.ksp.presentation.viewmodel.CouncilViewModel" />
+        <variable
             name="perakCouncilFragment"
             type="com.example.ksp.presentation.ui.council.PerakCouncilFragment" />
     </data>
@@ -35,91 +38,117 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/ipoh" />
+                android:text="@string/ipoh"
+                android:checked="@{viewModel.councilName.equals(@string/ipoh)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/ipoh_btn, @string/ipoh)}"/>
             <RadioButton
                 android:id="@+id/kampar_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/kampar" />
+                android:text="@string/kampar"
+                android:checked="@{viewModel.councilName.equals(@string/kampar)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/kampar_btn, @string/kampar)}"/>
             <RadioButton
                 android:id="@+id/taiping_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/taiping" />
+                android:text="@string/taiping"
+                android:checked="@{viewModel.councilName.equals(@string/taiping)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/taiping_btn, @string/taiping)}"/>
             <RadioButton
                 android:id="@+id/manjung_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/manjung" />
+                android:text="@string/manjung"
+                android:checked="@{viewModel.councilName.equals(@string/manjung)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/manjung_btn, @string/manjung)}"/>
             <RadioButton
                 android:id="@+id/teluk_intan_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/telukIntan" />
+                android:text="@string/telukIntan"
+                android:checked="@{viewModel.councilName.equals(@string/telukIntan)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/teluk_intan_btn, @string/telukIntan)}"/>
             <RadioButton
                 android:id="@+id/batu_gajah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/batuGajah" />
+                android:text="@string/batuGajah"
+                android:checked="@{viewModel.councilName.equals(@string/batuGajah)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/batu_gajah_btn, @string/batuGajah)}"/>
             <RadioButton
                 android:id="@+id/kuala_kangsar_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/kualaKangsar" />
+                android:text="@string/kualaKangsar"
+                android:checked="@{viewModel.councilName.equals(@string/kualaKangsar)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/kuala_kangsar_btn, @string/kualaKangsar)}"/>
             <RadioButton
                 android:id="@+id/gerik_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/gerik" />
+                android:text="@string/gerik"
+                android:checked="@{viewModel.councilName.equals(@string/gerik)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/gerik_btn, @string/gerik)}"/>
             <RadioButton
                 android:id="@+id/kerian_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/kerian" />
+                android:text="@string/kerian"
+                android:checked="@{viewModel.councilName.equals(@string/kerian)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/kerian_btn, @string/kerian)}"/>
             <RadioButton
                 android:id="@+id/perak_tengah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/perakTengah" />
+                android:text="@string/perakTengah"
+                android:checked="@{viewModel.councilName.equals(@string/perakTengah)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/perak_tengah_btn, @string/perakTengah)}"/>
             <RadioButton
                 android:id="@+id/tanjong_malim_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/tanjongMalim" />
+                android:text="@string/tanjongMalim"
+                android:checked="@{viewModel.councilName.equals(@string/tanjongMalim)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/tanjong_malim_btn, @string/tanjongMalim)}"/>
             <RadioButton
                 android:id="@+id/tapah_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/tapah" />
+                android:text="@string/tapah"
+                android:checked="@{viewModel.councilName.equals(@string/tapah)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/tapah_btn, @string/tapah)}"/>
             <RadioButton
                 android:id="@+id/selama_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/setting_margin"
                 android:layoutDirection="rtl"
-                android:text="@string/selama" />
+                android:text="@string/selama"
+                android:checked="@{viewModel.councilName.equals(@string/selama)}"
+                android:onClick="@{() -> viewModel.setCouncil(@id/selama_btn, @string/selama)}"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -3,7 +3,7 @@ import com.example.ksp.data.util.SharedPreference
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
+//@HiltViewModel
 class PenangCouncilViewModel @Inject constructor(
     private val sharedPreference: SharedPreference
 ): ViewModel() {
