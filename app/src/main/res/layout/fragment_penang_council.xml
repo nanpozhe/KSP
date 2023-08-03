@@ -52,7 +52,7 @@
                 android:layoutDirection="rtl"
                 android:text="@string/mbsp"
                 android:checked="@{viewModel.councilName.equals(@string/mbsp)}"
-                android:onClick="@{() -> viewModel.setCouncil(@id/mbsp_btn, @string/mbpp)}"/>
+                android:onClick="@{() -> viewModel.setCouncil(@id/mbsp_btn, @string/mbsp)}"/>
         </RadioGroup>
         <Button
             android:layout_width="match_parent"

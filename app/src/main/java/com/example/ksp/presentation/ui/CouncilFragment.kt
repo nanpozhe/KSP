@@ -35,6 +35,12 @@ class CouncilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         councilBinding?.councilFragment = this
+
+        val councilName = viewModel.getCouncilNameFromApp()
+        val councilId = viewModel.getCouncilIdFromApp()
+        if(councilId != 0 || councilId != null){
+            councilBinding?.councilSelectedTextview?.text = "Council Selected : $councilName"
+        }
     }
 
     fun toPenangCouncilPage(){

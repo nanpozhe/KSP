@@ -61,19 +61,19 @@ class SharedPreference @Inject constructor(
     }
     /** COUNCIL #NAME# APP PREF **/
     fun councilNameIsSaved(): Boolean {
-        val token = sharedPreferences.getString(Constants.COUNCIL_ID_SELECTED, null)
+        val token = sharedPreferences.getString(Constants.COUNCIL_NAME_CHOSEN, null)
         return token != null
     }
     fun getCouncilName(): String{
-        return sharedPreferences.getString(Constants.COUNCIL_ID_SELECTED, null).toString()
+        return sharedPreferences.getString(Constants.COUNCIL_NAME_CHOSEN, null).toString()
     }
 
     fun saveCouncilName(council: String){
-        sharedPreferences.edit().putString(Constants.COUNCIL_ID_SELECTED, council).apply()
+        sharedPreferences.edit().putString(Constants.COUNCIL_NAME_CHOSEN, council).apply()
     }
 
     fun deleteCouncilSavedName(): Boolean {
-        sharedPreferences.edit().remove(Constants.COUNCIL_ID_SELECTED).apply()
+        sharedPreferences.edit().remove(Constants.COUNCIL_NAME_CHOSEN).apply()
         return councilNameIsSaved()
     }
 }

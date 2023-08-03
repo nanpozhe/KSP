@@ -24,14 +24,6 @@ class CouncilViewModel @Inject constructor(
     val councilId: LiveData<Int> = _councilId
 
     /** setter functions **/
-    fun setCouncilName(cn: String){
-        _councilName.value = cn
-    }
-
-    fun setCouncilId(id: Int){
-        _councilId.value = id
-    }
-
     fun setCouncil(id: Int, name:String){
         _councilId.value = id
         Log.d("MainActivity", "Council VM -> DONE set _councilId")
@@ -50,7 +42,6 @@ class CouncilViewModel @Inject constructor(
         return sharedPreference.getCouncilName()
     }
 
-    //: TODO retreive id has issue
     fun getCouncilIdFromApp(): Int{
         Log.d("MainActivity", "Council VM -> retrieving council id from app")
         return sharedPreference.getCouncilSelectedId()
