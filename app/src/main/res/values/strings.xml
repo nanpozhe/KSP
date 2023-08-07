@@ -120,5 +120,20 @@
         <item>Majlis Perbandaraya Kuala Langat</item>
     </string-array>
     <!-- others -->
-
+    <string name="select_top_up_amount">SELECT A TOP UP AMOUNT</string>
+    <string name="rm5">RM5</string>
+    <string name="rm10">RM10</string>
+    <string name="rm20">RM20</string>
+    <string name="rm50">RM50</string>
+    <string name="rm100">RM100</string>
+    <string name="other_amount">Other</string>
+    <string name="select_top_up_method">SELECT TOP-UP METHOD</string>
+    <string name="tng_method">Touch n Go</string>
+    <string name="grabpay_method">GrabPay</string>
+    <string name="shopeepay_method">Shopee Pay</string>
+    <string name="fpx_method">FPX</string>
+    <string name="boost_method">Boost</string>
+    <string name="card_method">Credit/Debit Card</string>
+    <string name="top_up">Top Up Now</string>
+    <string name="cancel">Cancel</string>
 </resources>

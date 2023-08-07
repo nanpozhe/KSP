@@ -23,4 +23,6 @@
     <color name="white_blue">#D3F4F8</color>
     <color name="green">#0ACF83</color>
     <color name="grey">#4A4A4A</color>
+    <color name="medium_grey">#D94A4A4A</color>
+    <color name="light_grey">#804A4A4A</color>
 </resources>
