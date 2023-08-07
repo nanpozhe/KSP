@@ -42,6 +42,7 @@ class LoginViewModel @Inject constructor(
         is Resource.Success -> {
           successful.postValue(true)
           saveUserAccessName("${result.data?.fullname}")
+          sharedPrefUtil.saveUserToken("${result.data?.token}".toInt())
           Log.i(TAG, "LoginVM -> I am Success, ${result.data?.fullname}")
         }
       }

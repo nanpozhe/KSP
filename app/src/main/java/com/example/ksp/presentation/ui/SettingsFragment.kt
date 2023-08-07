@@ -34,17 +34,22 @@ class SettingsFragment : Fragment() {
 
         // data bidding
         settingsBinding.settingsFragment = this
+
+        initialCheckOnUserLoggedInToggle()
+    }
+
+    fun initialCheckOnUserLoggedInToggle(){
+        viewModel.initCheckUserLoggedInToggle()
     }
 
     fun checkUserLoggedIn(){
         if(!settingsBinding.keepLoggedIn.isChecked){
             viewModel.unSaveUserLoggedIn()
-            //viewModel.unCheckUserKeepLoggedIn()
+            viewModel.changeUserKeepLoggedIn(choice = false)
             settingsBinding.keepLoggedIn.isChecked = false
         }
         else if (settingsBinding.keepLoggedIn.isChecked) {
-            viewModel.saveUserLoggedIn()
-            //viewModel.checkUserKeepLoggedIn()
+            viewModel.changeUserKeepLoggedIn(choice = true)
             settingsBinding.keepLoggedIn.isChecked = true
         }
     }

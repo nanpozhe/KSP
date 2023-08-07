@@ -9,6 +9,9 @@
         <variable
             name="settingsFragment"
             type="com.example.ksp.presentation.ui.SettingsFragment" />
+        <variable
+            name="viewModel"
+            type="com.example.ksp.presentation.viewmodel.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,8 +75,8 @@
             android:textSize="18dp"
             android:textColor="@color/black"
             android:padding="@dimen/setting_margin"
-            android:checked="true"
-            android:onCheckedChanged="@{()-> settingsFragment.checkUserLoggedIn()}"
+            android:checked="@{()-> viewModel.userKeepLoggedIn.equals(true)}"
+            android:onClick="@{()-> settingsFragment.checkUserLoggedIn()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/language_settings"
             app:layout_constraintVertical_bias="0" />

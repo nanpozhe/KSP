@@ -9,5 +9,7 @@ data class LoginResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("fullname")
-    val fullname: String
+    val fullname: String,
+    @SerializedName("token")
+    val token: Int
 ) : Serializable

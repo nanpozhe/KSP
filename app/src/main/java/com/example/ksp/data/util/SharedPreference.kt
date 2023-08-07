@@ -42,6 +42,28 @@ class SharedPreference @Inject constructor(
         sharedPreferences.edit().putBoolean(Constants.USER_KEEP_LOGGED_IN, choice).apply()
     }
 
+    fun getUserKeepLoggedIn(): Boolean{
+        return sharedPreferences.getBoolean(Constants.USER_KEEP_LOGGED_IN, true)
+    }
+
+    /** USER TOKEN **/
+    fun isUserTokenSaved(): Boolean{
+        val token = sharedPreferences.getInt(Constants.USER_TOKEN, 0)
+        return token != 0
+    }
+    fun saveUserToken(id: Int){
+        sharedPreferences.edit().putInt(Constants.USER_TOKEN, id).apply()
+    }
+
+    fun getUserToken(): Int{
+        return sharedPreferences.getInt(Constants.USER_TOKEN, 0)
+    }
+
+    fun deleteUserToken(): Boolean{
+        sharedPreferences.edit().remove(Constants.USER_TOKEN).apply()
+        return isUserTokenSaved()
+    }
+
     /** COUNCIL #ID# APP PREF **/
     fun councilIdIsSelected(): Boolean {
         val token = sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0)
