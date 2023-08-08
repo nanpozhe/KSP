@@ -75,6 +75,7 @@
                 android:text="@string/reload_btn"
                 android:textColor="@color/BLUE_800"
                 android:backgroundTint="@color/white"
+                android:onClick="@{() -> homeFragment.toTopUpPage()}"
                 app:icon="@drawable/ic_round_add_24"
                 app:iconTint="@color/BLUE_800"
                 app:elevation="20dp"

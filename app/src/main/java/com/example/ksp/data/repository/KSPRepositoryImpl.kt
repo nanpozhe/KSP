@@ -1,14 +1,8 @@
 package com.example.ksp.data.repository
 
 import android.util.Log
-import com.example.ksp.data.model.modelrequest.LoginRequest
-import com.example.ksp.data.model.modelrequest.NewPasswordRequest
-import com.example.ksp.data.model.modelrequest.RegisterRequest
-import com.example.ksp.data.model.modelrequest.VerifyRequest
-import com.example.ksp.data.model.modelresponse.LoginResponse
-import com.example.ksp.data.model.modelresponse.NewPasswordResponse
-import com.example.ksp.data.model.modelresponse.RegisterResponse
-import com.example.ksp.data.model.modelresponse.VerifyResponse
+import com.example.ksp.data.model.modelrequest.*
+import com.example.ksp.data.model.modelresponse.*
 import com.example.ksp.data.repository.datasource.KSPRemoteDataSource
 import com.example.ksp.data.util.Resource
 import com.example.ksp.domain.repository.KSPRepository
@@ -92,6 +86,42 @@ class KSPRepositoryImpl @Inject constructor(
         return Resource.Error(message = "${response.errorBody()?.string()}")
     }
 
+    private fun responseToWalletID(response: Response<GetWalletResponse>) : Resource<GetWalletResponse>{
+        if(response.isSuccessful){
+            if(response.body()?.success == true){
+                response.body()?.let { result ->
+                    Log.d("MainActivity", "${Resource.Success(result).data}")
+                    return Resource.Success(result)
+                }
+            } else if(response.body()?.success == false){
+                response.body()?.let {
+                    Log.d("MainActivity", "${response.body()?.message}")
+                    return Resource.Error(message = "${response.body()?.message}")
+                }
+            }
+        }
+        Log.d("MainActivity", "${response.errorBody()?.string()}")
+        return Resource.Error(message = "${response.errorBody()?.string()}")
+    }
+
+    private fun responseToTopUp(response: Response<TopUpResponse>) : Resource<TopUpResponse>{
+        if(response.isSuccessful){
+            if(response.body()?.success == true){
+                response.body()?.let { result ->
+                    Log.d("MainActivity", "${Resource.Success(result).data}")
+                    return Resource.Success(result)
+                }
+            } else if(response.body()?.success == false){
+                response.body()?.let {
+                    Log.d("MainActivity", "${response.body()?.message}")
+                    return Resource.Error(message = "${response.body()?.message}")
+                }
+            }
+        }
+        Log.d("MainActivity", "${response.errorBody()?.string()}")
+        return Resource.Error(message = "${response.errorBody()?.string()}")
+    }
+
     override suspend fun performLogin(login: LoginRequest): Resource<LoginResponse> {
         return responseToString(kspRemoteDataSource.performLogin(login = login))
     }
@@ -106,5 +136,13 @@ class KSPRepositoryImpl @Inject constructor(
 
     override suspend fun updatePassword(password: NewPasswordRequest): Resource<NewPasswordResponse> {
         return responseToNewPassword(kspRemoteDataSource.updatePassword(password = password))
+    }
+
+    override suspend fun getWalletID(getWallet: GetWalletRequest): Resource<GetWalletResponse> {
+        return responseToWalletID(kspRemoteDataSource.getWalletID(getWallet = getWallet))
+    }
+
+    override suspend fun topUp(topUp: TopUpRequest): Resource<TopUpResponse> {
+        return responseToTopUp(kspRemoteDataSource.topUp(topUp = topUp))
     }
 }

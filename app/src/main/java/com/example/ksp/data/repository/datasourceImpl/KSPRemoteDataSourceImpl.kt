@@ -1,14 +1,8 @@
 package com.example.ksp.data.repository.datasourceImpl
 
 import com.example.ksp.data.api.KSPApiService
-import com.example.ksp.data.model.modelrequest.LoginRequest
-import com.example.ksp.data.model.modelrequest.NewPasswordRequest
-import com.example.ksp.data.model.modelrequest.RegisterRequest
-import com.example.ksp.data.model.modelrequest.VerifyRequest
-import com.example.ksp.data.model.modelresponse.LoginResponse
-import com.example.ksp.data.model.modelresponse.NewPasswordResponse
-import com.example.ksp.data.model.modelresponse.RegisterResponse
-import com.example.ksp.data.model.modelresponse.VerifyResponse
+import com.example.ksp.data.model.modelrequest.*
+import com.example.ksp.data.model.modelresponse.*
 import com.example.ksp.data.repository.datasource.KSPRemoteDataSource
 import retrofit2.Response
 import javax.inject.Inject
@@ -31,5 +25,13 @@ class KSPRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun updatePassword(password: NewPasswordRequest): Response<NewPasswordResponse> {
         return kspApiService.updatePassword(newPassword = password)
+    }
+
+    override suspend fun getWalletID(getWallet: GetWalletRequest): Response<GetWalletResponse> {
+        return kspApiService.getWalletID(getWallet = getWallet)
+    }
+
+    override suspend fun topUp(topUp: TopUpRequest): Response<TopUpResponse> {
+        return kspApiService.topUp(topUp = topUp)
     }
 }

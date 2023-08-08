@@ -63,7 +63,7 @@ class AuthUseCase @Inject constructor(
             emit(Resource.Error(e.localizedMessage ?: "An unexpected message"))
         } catch (e: IOException){
             Log.i(TAG, "AuthUseCase, verifying -> ${e.localizedMessage}")
-            emit(Resource.Error("Couldn't rearch server. Check your internet connection"))
+            emit(Resource.Error("Couldn't reach server. Check your internet connection"))
         }
     }
 

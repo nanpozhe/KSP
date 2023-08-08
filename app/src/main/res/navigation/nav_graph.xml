@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_homeFragment_to_councilFragment"
             app:destination="@id/councilFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topUpFragment"
+            app:destination="@id/topUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -85,4 +88,9 @@
             app:popUpTo="@id/councilFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/topUpFragment"
+        android:name="com.example.ksp.presentation.ui.TopUpFragment"
+        android:label="fragment_top_up"
+        tools:layout="@layout/fragment_top_up" />
 </navigation>

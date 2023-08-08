@@ -1,16 +1,9 @@
 package com.example.ksp.data.api
 
-import com.example.ksp.data.model.modelrequest.LoginRequest
-import com.example.ksp.data.model.modelrequest.NewPasswordRequest
-import com.example.ksp.data.model.modelrequest.RegisterRequest
-import com.example.ksp.data.model.modelrequest.VerifyRequest
-import com.example.ksp.data.model.modelresponse.LoginResponse
-import com.example.ksp.data.model.modelresponse.NewPasswordResponse
-import com.example.ksp.data.model.modelresponse.RegisterResponse
-import com.example.ksp.data.model.modelresponse.VerifyResponse
+import com.example.ksp.data.model.modelrequest.*
+import com.example.ksp.data.model.modelresponse.*
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface KSPApiService {
@@ -26,4 +19,10 @@ interface KSPApiService {
 
     @POST("/updatePswd.php")
     suspend fun updatePassword(@Body newPassword: NewPasswordRequest) : Response<NewPasswordResponse>
+
+    @POST("/getWallet.php")
+    suspend fun getWalletID(@Body getWallet: GetWalletRequest) : Response<GetWalletResponse>
+
+    @POST("/topup.php")
+    suspend fun topUp(@Body topUp: TopUpRequest) : Response<TopUpResponse>
 }

@@ -58,4 +58,8 @@ class HomeFragment : Fragment() {
     fun toCouncilPage(){
         findNavController().navigate(R.id.action_homeFragment_to_councilFragment)
     }
+
+    fun toTopUpPage(){
+        findNavController().navigate(R.id.action_homeFragment_to_topUpFragment)
+    }
 }

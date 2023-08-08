@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.ksp.R
+import com.example.ksp.databinding.FragmentTopUpBinding
 import com.example.ksp.presentation.viewmodel.TopUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,19 +19,21 @@ class TopUpFragment : Fragment() {
         fun newInstance() = TopUpFragment()
     }
 
-    private lateinit var viewModel: TopUpViewModel
+    val viewModel: TopUpViewModel by viewModels()
+    private var topUpBinding: FragmentTopUpBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_top_up, container, false)
+        val fragmentBinding = FragmentTopUpBinding.inflate(inflater, container, false)
+        topUpBinding = fragmentBinding
+        return fragmentBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TopUpViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        topUpBinding?.topUpFragment = this
     }
 
 }
