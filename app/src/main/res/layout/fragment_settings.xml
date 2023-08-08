@@ -75,7 +75,7 @@
             android:textSize="18dp"
             android:textColor="@color/black"
             android:padding="@dimen/setting_margin"
-            android:checked="@{()-> viewModel.userKeepLoggedIn.equals(true)}"
+            android:checked="@{viewModel.userKeepLoggedIn.equals(true)}"
             android:onClick="@{()-> settingsFragment.checkUserLoggedIn()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/language_settings"

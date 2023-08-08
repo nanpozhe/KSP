@@ -16,24 +16,30 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
-    val viewModel: SettingsViewModel by viewModels()
-    private lateinit var settingsBinding: FragmentSettingsBinding
+    private val viewModel: SettingsViewModel by viewModels()
+    private var settingsBinding: FragmentSettingsBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingsBinding = FragmentSettingsBinding.inflate(layoutInflater)
-
-        return settingsBinding.root
+        val fragmentBinding = FragmentSettingsBinding.inflate(inflater, container, false)
+        settingsBinding = fragmentBinding
+        return fragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // data bidding
-        settingsBinding.settingsFragment = this
+        settingsBinding?.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = viewModel
+            settingsFragment = this@SettingsFragment
+        }
+
+
 
         initialCheckOnUserLoggedInToggle()
     }
@@ -43,14 +49,14 @@ class SettingsFragment : Fragment() {
     }
 
     fun checkUserLoggedIn(){
-        if(!settingsBinding.keepLoggedIn.isChecked){
+        if(settingsBinding?.keepLoggedIn?.isChecked == false){
             viewModel.unSaveUserLoggedIn()
             viewModel.changeUserKeepLoggedIn(choice = false)
-            settingsBinding.keepLoggedIn.isChecked = false
+            settingsBinding?.keepLoggedIn?.isChecked = false
         }
-        else if (settingsBinding.keepLoggedIn.isChecked) {
+        else if (settingsBinding?.keepLoggedIn?.isChecked == true) {
             viewModel.changeUserKeepLoggedIn(choice = true)
-            settingsBinding.keepLoggedIn.isChecked = true
+            settingsBinding?.keepLoggedIn?.isChecked = true
         }
     }
 
