@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/councilFragment"
-        android:name="com.example.ksp.presentation.ui.CouncilFragment"
+        android:name="com.example.ksp.presentation.ui.council.CouncilFragment"
         android:label="fragment_council"
         tools:layout="@layout/fragment_council" >
         <action
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/topUpFragment"
-        android:name="com.example.ksp.presentation.ui.TopUpFragment"
+        android:name="com.example.ksp.presentation.ui.wallet.TopUpFragment"
         android:label="fragment_top_up"
         tools:layout="@layout/fragment_top_up" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.ksp.presentation.ui
+package com.example.ksp.presentation.ui.wallet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.ksp.R
 import com.example.ksp.databinding.FragmentTopUpBinding
 import com.example.ksp.presentation.viewmodel.TopUpViewModel
@@ -22,7 +21,7 @@ class TopUpFragment : Fragment() {
     }
 
     val viewModel: TopUpViewModel by viewModels()
-    private var topUpBinding: FragmentTopUpBinding? = null
+    private var topUpBinding: com.example.ksp.databinding.FragmentTopUpBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
