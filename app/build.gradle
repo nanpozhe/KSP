@@ -86,6 +86,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // material design 3
-    // def material_version = "1.9.0"
-    // implementation "com.google.android.material:material: $material_version"
+    def material_version = "1.9.0"
+    implementation "com.google.android.material:material: $material_version"
 }

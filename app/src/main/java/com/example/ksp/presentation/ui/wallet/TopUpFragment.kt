@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.ksp.R
 import com.example.ksp.databinding.FragmentTopUpBinding
 import com.example.ksp.presentation.viewmodel.TopUpViewModel
@@ -20,8 +21,8 @@ class TopUpFragment : Fragment() {
         fun newInstance() = TopUpFragment()
     }
 
-    val viewModel: TopUpViewModel by viewModels()
-    private var topUpBinding: com.example.ksp.databinding.FragmentTopUpBinding? = null
+    val viewModel: TopUpViewModel by activityViewModels()
+    private var topUpBinding: FragmentTopUpBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,15 +43,14 @@ class TopUpFragment : Fragment() {
             topUpFragment = this@TopUpFragment
         }
 
-        if(!viewModel.getAccountId()){          // if fail
-            Snackbar.make(view, "Failed to retrieve wallet id... Please contact admin", Snackbar.LENGTH_LONG).show()
-            val rootLayout = topUpBinding?.root?.findViewById<ViewGroup>(R.id.topUpFragment)
-            disableButtonsInLayout(rootLayout!!)
+        viewModel.getAccountId()
+        viewModel.successful.observe(viewLifecycleOwner){ successful ->
+            if(successful == false){
+                Snackbar.make(view, "Failed to retrieve wallet id... Please contact admin", Snackbar.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_topUpFragment_to_homeFragment)
+            }
+            viewModel.navigateToPage()
         }
-    }
-
-    fun topUpNowButton(){
-        viewModel.topUp()
     }
 
     fun amountButtonAction(amount: Int){
@@ -59,7 +59,12 @@ class TopUpFragment : Fragment() {
          *  remove the method section -> a new page with amount displayed above the top up button
          *  exactly like setel app one
          **/
-        //findNavController().navigate()
+        findNavController().navigate(R.id.action_topUpFragment_to_topUpMethodFragment)
+    }
+
+    fun otherAmountButtonAction(){
+        val bottomSheetFragment = ModalBottomSheetFragment()
+        bottomSheetFragment.show(requireFragmentManager(), "Top-Up Amount")
     }
 
     private fun disableButtonsInLayout(layout: ViewGroup){

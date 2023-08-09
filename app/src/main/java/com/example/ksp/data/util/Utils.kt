@@ -62,4 +62,23 @@ object Utils {
         if(!password1.equals(password2)) return ValidationResult(false, "Password confirmation is not same previous password")
         return ValidationResult(true)
     }
+
+    fun validateTopUpRequest(
+        amount: Int,
+        method: Int
+    ) : ValidationResult {
+        if(amount === 0 && method === 0)
+            return ValidationResult(false, "All fields cannot be blank")
+        if(amount === 0)
+            return ValidationResult(false, "Amount is blank")
+        if(method === 0)
+            return ValidationResult(false, "Method is blank")
+        if(!amount.equals(Int) && !method.equals(Int))
+            return ValidationResult(false, "Amount and method are not type of integer")
+        if(!amount.equals(Int))
+            return ValidationResult(false, "Amount is not type of integer")
+        if(!method.equals(Int))
+            return ValidationResult(false, "Method is not type of integer")
+        return ValidationResult(true)
+    }
 }

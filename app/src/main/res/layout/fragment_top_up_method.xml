@@ -6,6 +6,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.ksp.presentation.viewmodel.TopUpViewModel" />
+        <variable
             name="topUpMethodFragment"
             type="com.example.ksp.presentation.ui.wallet.TopUpMethodFragment" />
     </data>
@@ -57,6 +60,8 @@
                         android:padding="@dimen/setting_margin"
                         android:text="@string/grabpay_method"
                         android:textSize="16dp"
+                        android:checked="@{viewModel.method.equals(4)}"
+                        android:onClick="@{() -> viewModel.setMethod(4)}"
                         android:textColor="@color/medium_grey"
                         android:layoutDirection="rtl"
                         android:backgroundTint="@color/white" />
@@ -88,6 +93,8 @@
                         android:padding="@dimen/setting_margin"
                         android:text="@string/tng_method"
                         android:textSize="16dp"
+                        android:checked="@{viewModel.method.equals(1)}"
+                        android:onClick="@{() -> viewModel.setMethod(1)}"
                         android:textColor="@color/medium_grey"
                         android:layoutDirection="rtl"
                         android:backgroundTint="@color/white" />
@@ -119,6 +126,8 @@
                         android:padding="@dimen/setting_margin"
                         android:text="@string/shopeepay_method"
                         android:textSize="16dp"
+                        android:checked="@{viewModel.method.equals(5)}"
+                        android:onClick="@{() -> viewModel.setMethod(5)}"
                         android:textColor="@color/medium_grey"
                         android:layoutDirection="rtl"
                         android:backgroundTint="@color/white" />
@@ -148,6 +157,8 @@
                         android:padding="@dimen/setting_margin"
                         android:text="@string/fpx_method"
                         android:textSize="16dp"
+                        android:checked="@{viewModel.method.equals(3)}"
+                        android:onClick="@{() -> viewModel.setMethod(3)}"
                         android:textColor="@color/medium_grey"
                         android:layoutDirection="rtl"
                         android:backgroundTint="@color/white" />
@@ -177,6 +188,8 @@
                         android:padding="@dimen/setting_margin"
                         android:text="@string/boost_method"
                         android:textSize="16dp"
+                        android:checked="@{viewModel.method.equals(6)}"
+                        android:onClick="@{() -> viewModel.setMethod(6)}"
                         android:textColor="@color/medium_grey"
                         android:layoutDirection="rtl"
                         android:backgroundTint="@color/white" />
@@ -208,6 +221,8 @@
                         android:padding="@dimen/setting_margin"
                         android:text="@string/card_method"
                         android:textSize="16dp"
+                        android:checked="@{viewModel.method.equals(2)}"
+                        android:onClick="@{() -> viewModel.setMethod(2)}"
                         android:textColor="@color/medium_grey"
                         android:layoutDirection="rtl"
                         android:backgroundTint="@color/white" />
@@ -239,7 +254,16 @@
                 android:layout_height="wrap_content"
                 android:text="@string/top_up"
                 android:layout_marginBottom="25dp"
-                android:layout_marginHorizontal="@dimen/setting_margin"/>
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:onClick="@{() -> topUpMethodFragment.topUp()}"/>
         </LinearLayout>
+        <include
+            android:id="@+id/login_progress"
+            layout="@layout/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="46dp" />
     </RelativeLayout>
 </layout>

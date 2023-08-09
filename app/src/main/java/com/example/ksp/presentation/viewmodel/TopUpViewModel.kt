@@ -21,7 +21,7 @@ class TopUpViewModel @Inject constructor(
     private val sharedPreference: SharedPreference
 ) : ViewModel() {
 
-    private val TAG = "MainActivtity"
+    private val TAG = "MainActivity"
     val successful: MutableLiveData<Boolean?> = MutableLiveData()
     val error: MutableLiveData<String?> = MutableLiveData()
 
@@ -39,10 +39,11 @@ class TopUpViewModel @Inject constructor(
         _method.value = a
     }
 
-    fun getAccountId(): Boolean{
+    fun getAccountId(){
         val account_id = sharedPreference.getUserToken()
         if(account_id != 0){
             val walletRequest = GetWalletRequest(account_id)
+            Log.d(TAG, "TopUpVM -> starting getWalletID api")
             walletUseCase.getWalletID(getWalletRequest = walletRequest).onEach { result ->
                 when(result) {
                     is Resource.Loading -> {
@@ -60,10 +61,7 @@ class TopUpViewModel @Inject constructor(
                     }
                 }
             }.launchIn(viewModelScope)
-        } else {
-            return false
         }
-        return true
     }
 
     fun topUp(){
@@ -84,10 +82,6 @@ class TopUpViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
-    }
-
-    fun sameValue(value: Int): Boolean{
-        return value.equals(amount)
     }
 
     fun navigateToPage(){
