@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.ksp.data.util.SharedPreference
 import com.example.ksp.databinding.FragmentCouncilBinding
 import com.example.ksp.domain.usecase.AuthUseCase
+import com.example.ksp.domain.usecase.WalletUseCase
 import com.example.ksp.presentation.viewmodel.CouncilViewModel
 import com.example.ksp.presentation.viewmodel.HomeViewModel
 import com.example.ksp.presentation.viewmodel.LoginViewModel
@@ -26,8 +27,8 @@ class ViewModelModule {
 
     @Provides
     @Singleton
-    fun providesHomeViewModel(app : Application, sharedPreference: SharedPreference): HomeViewModel{
-        return HomeViewModel(app, sharedPreference)
+    fun providesHomeViewModel(app : Application, sharedPreference: SharedPreference, walletUseCase: WalletUseCase): HomeViewModel{
+        return HomeViewModel(app, sharedPreference, walletUseCase)
     }
 
     @Provides

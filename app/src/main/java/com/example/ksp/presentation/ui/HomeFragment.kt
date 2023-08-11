@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.ksp.R
 import com.example.ksp.databinding.FragmentHomeBinding
 import com.example.ksp.presentation.viewmodel.HomeViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -44,13 +45,34 @@ class HomeFragment : Fragment() {
         homeBinding.homeFragment = this
 
         homeBinding.userFullName.text = homeViewModel.username
+
+        // load wallet id
+        homeViewModel.getWalletId()
+        disablePage()
+        homeViewModel.walletIdSuccessful.observe(viewLifecycleOwner){ successful ->
+            if(successful == true){
+                homeViewModel.proceedToGetBalance()
+                homeViewModel.getWalletBalance()
+                disablePage()
+                // check to set the wallet balance on the home page
+                homeViewModel.balanceSuccessful.observe(viewLifecycleOwner){ successful ->
+                    if(successful == true){
+                        enablePage()
+                        homeBinding.ewalletBalance.text = "RM ${homeViewModel.walletBalance}"
+                        homeViewModel.navigateToPage()
+                    } else if (successful == false){
+                        Snackbar.make(view, "${homeViewModel.balanceError.value}", Snackbar.LENGTH_LONG).show()
+                        homeViewModel.navigateToPage()
+                        //findNavController().navigate(R.id.action_topUpFragment_to_homeFragment)
+                    }
+                }
+            } else if(successful == false){
+                Snackbar.make(view, "${homeViewModel.walletIdError.value}", Snackbar.LENGTH_LONG).show()
+                enablePage()
+            }
+        }
     }
 
-/*    override fun onResume() {
-        super.onResume()
-        parentFragmentManager.popBackStack(R.id.action_loginFragment_to_homeFragment, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-    }
-*/
     fun toSettingsPage(){
         findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
     }
@@ -61,5 +83,17 @@ class HomeFragment : Fragment() {
 
     fun toTopUpPage(){
         findNavController().navigate(R.id.action_homeFragment_to_topUpFragment)
+    }
+
+    private fun disablePage(){
+        homeBinding.loginProgress.loadingProgress.visibility = View.VISIBLE
+        homeBinding.statusLayout.isEnabled = false
+        homeBinding.actionsLayout.isEnabled = false
+    }
+
+    private fun enablePage(){
+        homeBinding.loginProgress.loadingProgress.visibility = View.INVISIBLE
+        homeBinding.statusLayout.isEnabled = true
+        homeBinding.actionsLayout.isEnabled = true
     }
 }

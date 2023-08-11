@@ -1,8 +1,10 @@
 package com.example.ksp.domain.usecase
 
 import android.util.Log
+import com.example.ksp.data.model.modelrequest.GetBalanceRequest
 import com.example.ksp.data.model.modelrequest.GetWalletRequest
 import com.example.ksp.data.model.modelrequest.TopUpRequest
+import com.example.ksp.data.model.modelresponse.GetBalanceResponse
 import com.example.ksp.data.model.modelresponse.GetWalletResponse
 import com.example.ksp.data.model.modelresponse.TopUpResponse
 import com.example.ksp.data.util.Resource
@@ -16,7 +18,7 @@ import javax.inject.Inject
 class WalletUseCase @Inject constructor(
     private val kspRepository: KSPRepository
 ) {
-    private val TAG = "MainActivtity"
+    private val TAG = "MainActivity"
 
     fun getWalletID(getWalletRequest: GetWalletRequest) : Flow<Resource<GetWalletResponse>> = flow {
         emit(Resource.Loading())
@@ -29,6 +31,21 @@ class WalletUseCase @Inject constructor(
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
         } catch (e: IOException){
             Log.i(TAG, "WalletUseCase, getWalletID -> ${e.localizedMessage}")
+            emit(Resource.Error("Couldn't reach server. Check your internet connection"))
+        }
+    }
+
+    fun getWalletBalance(getBalanceRequest: GetBalanceRequest) : Flow<Resource<GetBalanceResponse>> = flow {
+        emit(Resource.Loading())
+        try {
+            val response = kspRepository.getWalletBalance(getBalance = getBalanceRequest)
+            Log.i(TAG, "WalletUseCase -> I am retrieving wallet balance, ${response.data?.message}")
+            emit(response)
+        } catch (e: HttpException){
+            Log.i(TAG, "WalletUseCase, getWalletBalance -> ${e.localizedMessage}")
+            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
+        } catch (e: IOException) {
+            Log.i(TAG, "WalletUseCase, getWalletBalance -> ${e.localizedMessage}")
             emit(Resource.Error("Couldn't reach server. Check your internet connection"))
         }
     }

@@ -43,14 +43,18 @@ class TopUpFragment : Fragment() {
             topUpFragment = this@TopUpFragment
         }
 
-        viewModel.getAccountId()
+        // set balance value after retrieving the wallet balance from db
+        viewModel.getWalletBalance()
         viewModel.successful.observe(viewLifecycleOwner){ successful ->
-            if(successful == false){
-                Snackbar.make(view, "Failed to retrieve wallet id... Please contact admin", Snackbar.LENGTH_LONG).show()
-                findNavController().navigate(R.id.action_topUpFragment_to_homeFragment)
+            if(successful == true){
+                topUpBinding?.walletBalance?.text = "Balance : RM${viewModel.balance}"
+                viewModel.navigateToPage()
+            } else if(successful == false){
+                Snackbar.make(view, "${viewModel.error.value}", Snackbar.LENGTH_LONG).show()
+                viewModel.navigateToPage()
             }
-            viewModel.navigateToPage()
         }
+
     }
 
     fun amountButtonAction(amount: Int){

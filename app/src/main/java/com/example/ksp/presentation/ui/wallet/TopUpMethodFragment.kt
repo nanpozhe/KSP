@@ -71,9 +71,7 @@ class TopUpMethodFragment : Fragment() {
     }
 
     fun topUp(){
-        val validateResult = validateTopUpRequest(
-            amount = sharedViewModel.amount.value!!,
-            method = sharedViewModel.method.value!!)
+        val validateResult = sharedViewModel.validateVariable()
 
         if(validateResult.successful){
             topUpMethodBinding?.loginProgress?.loadingProgress?.visibility = View.VISIBLE

@@ -64,6 +64,25 @@ class SharedPreference @Inject constructor(
         return isUserTokenSaved()
     }
 
+    /** WALLET ID **/
+    fun isWalletIDSaved(): Boolean{
+        val token = sharedPreferences.getInt(Constants.USER_TOKEN, 0)
+        return token != 0
+    }
+    fun saveWalletID(id: Int){
+        sharedPreferences.edit().putInt(Constants.USER_TOKEN, id).apply()
+    }
+
+    fun getWalletID(): Int{
+        return sharedPreferences.getInt(Constants.USER_TOKEN, 0)
+    }
+
+    fun deleteWalletID(): Boolean{
+        sharedPreferences.edit().remove(Constants.USER_TOKEN).apply()
+        return isUserTokenSaved()
+    }
+
+
     /** COUNCIL #ID# APP PREF **/
     fun councilIdIsSelected(): Boolean {
         val token = sharedPreferences.getInt(Constants.COUNCIL_ID_SELECTED, 0)

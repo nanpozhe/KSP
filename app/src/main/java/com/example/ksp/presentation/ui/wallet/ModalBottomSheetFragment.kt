@@ -17,30 +17,33 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 class ModalBottomSheetFragment: BottomSheetDialogFragment() {
 
     val sharedViewModel: TopUpViewModel by activityViewModels()
-    private var fragmentModalBottomSheetBinding: FragmentTopUpMethodBinding? = null
-    private lateinit var modalBottomSheetBinding: TopUpModalBottomSheetBinding
+    private var fragmentModalBottomSheetBinding: TopUpModalBottomSheetBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.top_up_modal_bottom_sheet, container, false)
+        val fragmentBinding = TopUpModalBottomSheetBinding.inflate(inflater, container, false)
+        fragmentModalBottomSheetBinding = fragmentBinding
+        return fragmentBinding.root
+    // return inflater.inflate(R.layout.top_up_modal_bottom_sheet, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        modalBottomSheetBinding?.apply {
+        fragmentModalBottomSheetBinding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
         }
 
-        modalBottomSheetBinding.confirmTopUpButton.setOnClickListener {
+        fragmentModalBottomSheetBinding?.confirmTopUpButton?.setOnClickListener {
             hideSoftKeyboard()
 
-            val amount = modalBottomSheetBinding.otherAmountEditText.text.toString().toInt()
+            val amount = fragmentModalBottomSheetBinding?.otherAmountEditText?.text.toString().toInt()
             sharedViewModel.setAmount(amount)
+            dialog?.dismiss()
             findNavController().navigate(R.id.action_topUpFragment_to_topUpMethodFragment)
         }
     }

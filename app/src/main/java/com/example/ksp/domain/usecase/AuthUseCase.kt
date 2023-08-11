@@ -20,7 +20,7 @@ import javax.inject.Inject
 class AuthUseCase @Inject constructor(
     private val kspRepository: KSPRepository
 ) {
-    private val TAG = "MainActivtity"
+    private val TAG = "MainActivity"
 
     fun performLogin(loginRequest: LoginRequest) : Flow<Resource<LoginResponse>> = flow {
         emit(Resource.Loading())

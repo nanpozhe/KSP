@@ -11,6 +11,7 @@ interface KSPRepository {
     suspend fun performVerify(verify : VerifyRequest) : Resource<VerifyResponse>
     suspend fun updatePassword(password : NewPasswordRequest) :Resource<NewPasswordResponse>
     suspend fun getWalletID(getWallet: GetWalletRequest) : Resource<GetWalletResponse>
+    suspend fun getWalletBalance(getBalance: GetBalanceRequest) : Resource<GetBalanceResponse>
     suspend fun topUp(topUp: TopUpRequest) : Resource<TopUpResponse>
 
 }

@@ -73,12 +73,12 @@ object Utils {
             return ValidationResult(false, "Amount is blank")
         if(method === 0)
             return ValidationResult(false, "Method is blank")
-        if(!amount.equals(Int) && !method.equals(Int))
+        /*if(!((amount is Int) && (method is Int)))
             return ValidationResult(false, "Amount and method are not type of integer")
-        if(!amount.equals(Int))
+        if(amount !is Int)
             return ValidationResult(false, "Amount is not type of integer")
         if(!method.equals(Int))
-            return ValidationResult(false, "Method is not type of integer")
+            return ValidationResult(false, "Method is not type of integer")*/
         return ValidationResult(true)
     }
 }

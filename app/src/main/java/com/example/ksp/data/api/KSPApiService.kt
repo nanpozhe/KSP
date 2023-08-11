@@ -23,6 +23,9 @@ interface KSPApiService {
     @POST("/getWallet.php")
     suspend fun getWalletID(@Body getWallet: GetWalletRequest) : Response<GetWalletResponse>
 
+    @POST("/getBalance.php")
+    suspend fun getWalletBalance(@Body getBalance: GetBalanceRequest) : Response<GetBalanceResponse>
+
     @POST("/topup.php")
     suspend fun topUp(@Body topUp: TopUpRequest) : Response<TopUpResponse>
 }

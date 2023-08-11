@@ -31,19 +31,13 @@ class KSPRepositoryImpl @Inject constructor(
     }
 
     private fun responseToString(response: Response<LoginResponse>) : Resource<LoginResponse>{
-        if(response.isSuccessful){
-            if(response.body()?.success == true) {
+        if(response.isSuccessful) {
+            if (response.body()?.success == true) {
                 response.body()?.let {
                     Log.d("MainActivity", "${Resource.Success(it).data}")
                     return Resource.Success(it)
                 }
-            } else if(response.body()?.success == false){
-                response.body()?.let {
-                    Log.d("MainActivity", "${response.body()?.message}")
-                    return Resource.Error(message = "${response.body()?.message}")
-                }
             }
-
         }
         Log.d("MainActivity","${response.errorBody()?.string()}")
         return Resource.Error(message = "${response.errorBody()?.string()}")
@@ -56,13 +50,7 @@ class KSPRepositoryImpl @Inject constructor(
                     Log.d("MainActivity", "${Resource.Success(it).data}")
                     return Resource.Success(it)
                 }
-            } else if(response.body()?.success == false){
-                response.body().let {
-                    Log.d("MainActivity", "${response.body()?.message}")
-                    return Resource.Error(message = "${response.body()?.message}")
-                }
             }
-
         }
         Log.d("MainActivity", "${response.errorBody()?.string()}")
         return Resource.Error(message = "${response.errorBody()?.string()}")
@@ -74,11 +62,6 @@ class KSPRepositoryImpl @Inject constructor(
                 response.body()?.let { result ->
                     Log.d("MainActivity", "${Resource.Success(result).data}")
                     return Resource.Success(result)
-                }
-            } else if(response.body()?.success == false){
-                response.body()?.let {
-                    Log.d("MainActivity", "${response.body()?.message}")
-                    return Resource.Error(message = "${response.body()?.message}")
                 }
             }
         }
@@ -93,10 +76,18 @@ class KSPRepositoryImpl @Inject constructor(
                     Log.d("MainActivity", "${Resource.Success(result).data}")
                     return Resource.Success(result)
                 }
-            } else if(response.body()?.success == false){
-                response.body()?.let {
-                    Log.d("MainActivity", "${response.body()?.message}")
-                    return Resource.Error(message = "${response.body()?.message}")
+            }
+        }
+        Log.d("MainActivity", "${response.errorBody()?.string()}")
+        return Resource.Error(message = "${response.errorBody()?.string()}")
+    }
+
+    private fun responseToWalletBalance(response: Response<GetBalanceResponse>) : Resource<GetBalanceResponse>{
+        if (response.isSuccessful){
+            if(response.body()?.success == true){
+                response.body()?.let { result ->
+                    Log.d("MainActivity", "${Resource.Success(result).data}")
+                    return Resource.Success(result)
                 }
             }
         }
@@ -110,11 +101,6 @@ class KSPRepositoryImpl @Inject constructor(
                 response.body()?.let { result ->
                     Log.d("MainActivity", "${Resource.Success(result).data}")
                     return Resource.Success(result)
-                }
-            } else if(response.body()?.success == false){
-                response.body()?.let {
-                    Log.d("MainActivity", "${response.body()?.message}")
-                    return Resource.Error(message = "${response.body()?.message}")
                 }
             }
         }
@@ -140,6 +126,10 @@ class KSPRepositoryImpl @Inject constructor(
 
     override suspend fun getWalletID(getWallet: GetWalletRequest): Resource<GetWalletResponse> {
         return responseToWalletID(kspRemoteDataSource.getWalletID(getWallet = getWallet))
+    }
+
+    override suspend fun getWalletBalance(getBalance: GetBalanceRequest): Resource<GetBalanceResponse> {
+        return responseToWalletBalance(kspRemoteDataSource.getWalletBalance(getBalance = getBalance))
     }
 
     override suspend fun topUp(topUp: TopUpRequest): Resource<TopUpResponse> {

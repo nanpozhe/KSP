@@ -118,6 +118,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/actions_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/status_layout">
@@ -215,6 +216,14 @@
                 app:layout_constraintBottom_toBottomOf="@id/council_action"
                 style="@style/Widget.KedahSmartParking.Button.ContainerButton"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/login_progress"
+            layout="@layout/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="46dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

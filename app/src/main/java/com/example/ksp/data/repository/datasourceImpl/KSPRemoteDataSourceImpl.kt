@@ -31,6 +31,10 @@ class KSPRemoteDataSourceImpl @Inject constructor(
         return kspApiService.getWalletID(getWallet = getWallet)
     }
 
+    override suspend fun getWalletBalance(getBalance: GetBalanceRequest): Response<GetBalanceResponse> {
+        return kspApiService.getWalletBalance(getBalance = getBalance)
+    }
+
     override suspend fun topUp(topUp: TopUpRequest): Response<TopUpResponse> {
         return kspApiService.topUp(topUp = topUp)
     }
