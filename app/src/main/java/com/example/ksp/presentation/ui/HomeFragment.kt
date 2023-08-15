@@ -85,6 +85,10 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_homeFragment_to_topUpFragment)
     }
 
+    fun toVehiclePage(){
+        findNavController().navigate(R.id.action_homeFragment_to_carFragment)
+    }
+
     private fun disablePage(){
         homeBinding.loginProgress.loadingProgress.visibility = View.VISIBLE
         homeBinding.statusLayout.isEnabled = false

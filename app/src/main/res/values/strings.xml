@@ -136,5 +136,17 @@
     <string name="card_method">Credit/Debit Card</string>
     <string name="top_up">Top Up Now</string>
     <string name="cancel">Cancel</string>
-
+    <string name="list_cars">List of Cars : </string>
+    <string name="create_car">Create</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+    <string name="maximum_cars">Each user is allocated to a maximum of 5 cars.</string>
+    <string name="car_plate_title">Enter Car Plate Number</string>
+    <string name="car_color_title">Enter Car Color</string>
+    <string name="car_brand_title">Enter Car Brand</string>
+    <string name="car_plate_hint">eg: KSP2222</string>
+    <string name="car_color_hint">eg: BLUE</string>
+    <string name="car_brand_hint">eg: PERODUA</string>
+    <string name="car_dialog_title">Enter Car Details</string>
+    <string name="car_dialog_edit_message"></string>
 </resources>

@@ -108,6 +108,32 @@ class KSPRepositoryImpl @Inject constructor(
         return Resource.Error(message = "${response.errorBody()?.string()}")
     }
 
+    private fun simpleCarResponse(response: Response<CarResponse>) : Resource<CarResponse>{
+        if(response.isSuccessful){
+            if(response.body()?.success == true){
+                response.body()?.let { result ->
+                    Log.d("MainActivity", "${Resource.Success(result).data}")
+                    return Resource.Success(result)
+                }
+            }
+        }
+        Log.d("MainActivity", "${response.errorBody()?.string()}")
+        return Resource.Error(message = "${response.errorBody()?.string()}")
+    }
+
+    private fun responseToCarData(response: Response<GetAllCarResponse>) : Resource<GetAllCarResponse>{
+        if(response.isSuccessful){
+            if(response.body()?.success == true){
+                response.body()?.let { result ->
+                    Log.d("MainActivity", "${Resource.Success(result).data}")
+                    return Resource.Success(result)
+                }
+            }
+        }
+        Log.d("MainActivity", "${response.errorBody()?.string()}")
+        return Resource.Error(message = "${response.errorBody()?.string()}")
+    }
+
     override suspend fun performLogin(login: LoginRequest): Resource<LoginResponse> {
         return responseToString(kspRemoteDataSource.performLogin(login = login))
     }
@@ -134,5 +160,18 @@ class KSPRepositoryImpl @Inject constructor(
 
     override suspend fun topUp(topUp: TopUpRequest): Resource<TopUpResponse> {
         return responseToTopUp(kspRemoteDataSource.topUp(topUp = topUp))
+    }
+
+    override suspend fun createCar(createCar: CreateCarRequest) : Resource<CarResponse> {
+        return simpleCarResponse(kspRemoteDataSource.createCar(createCar = createCar))
+    }
+    override suspend fun editCar(editCar: EditCarRequest) : Resource<CarResponse> {
+        return simpleCarResponse(kspRemoteDataSource.editCar(editCar = editCar))
+    }
+    override suspend fun deleteCar(deleteCar: DeleteCarRequest) : Resource<CarResponse> {
+        return simpleCarResponse(kspRemoteDataSource.deleteCar(deleteCar = deleteCar))
+    }
+    override suspend fun getAllCar(getAllCar: GetAllCarRequest) : Resource<GetAllCarResponse> {
+        return responseToCarData(kspRemoteDataSource.getAllCar(getAllCar = getAllCar))
     }
 }

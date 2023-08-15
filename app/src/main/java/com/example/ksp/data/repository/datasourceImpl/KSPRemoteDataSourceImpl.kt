@@ -38,4 +38,17 @@ class KSPRemoteDataSourceImpl @Inject constructor(
     override suspend fun topUp(topUp: TopUpRequest): Response<TopUpResponse> {
         return kspApiService.topUp(topUp = topUp)
     }
+
+    override suspend fun createCar(createCar: CreateCarRequest) : Response<CarResponse> {
+        return kspApiService.createCar(createCar = createCar)
+    }
+    override suspend fun editCar(editCar: EditCarRequest) : Response<CarResponse> {
+        return kspApiService.editCar(editCar = editCar)
+    }
+    override suspend fun deleteCar(deleteCar: DeleteCarRequest) : Response<CarResponse> {
+        return kspApiService.deleteCar(deleteCar = deleteCar)
+    }
+    override suspend fun getAllCar(getAllCar: GetAllCarRequest) : Response<GetAllCarResponse> {
+        return kspApiService.getAllCar(getAllCar = getAllCar)
+    }
 }

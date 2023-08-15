@@ -4,11 +4,9 @@ import android.app.Application
 import com.example.ksp.data.util.SharedPreference
 import com.example.ksp.databinding.FragmentCouncilBinding
 import com.example.ksp.domain.usecase.AuthUseCase
+import com.example.ksp.domain.usecase.CarUseCase
 import com.example.ksp.domain.usecase.WalletUseCase
-import com.example.ksp.presentation.viewmodel.CouncilViewModel
-import com.example.ksp.presentation.viewmodel.HomeViewModel
-import com.example.ksp.presentation.viewmodel.LoginViewModel
-import com.example.ksp.presentation.viewmodel.SplashViewModel
+import com.example.ksp.presentation.viewmodel.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,5 +33,11 @@ class ViewModelModule {
     @Singleton
     fun providesSplashViewModel(sharedPreference: SharedPreference): SplashViewModel{
         return SplashViewModel(sharedPreference)
+    }
+
+    @Provides
+    @Singleton
+    fun providesCarViewModel(carUseCase: CarUseCase, sharedPreference: SharedPreference): CarViewModel{
+        return CarViewModel(carUseCase, sharedPreference)
     }
 }

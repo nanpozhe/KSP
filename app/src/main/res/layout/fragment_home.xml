@@ -13,8 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/status_layout"
@@ -190,6 +189,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/vehicle_label"
+                android:onClick="@{() -> homeFragment.toVehiclePage()}"
                 app:icon="@drawable/ic_vehicle_icon"
                 app:layout_constraintStart_toEndOf="@id/council_action"
                 app:layout_constraintEnd_toStartOf="@id/history_action"
