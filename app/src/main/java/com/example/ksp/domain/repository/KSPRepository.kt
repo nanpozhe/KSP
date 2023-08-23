@@ -18,4 +18,5 @@ interface KSPRepository {
     suspend fun editCar(editCar: EditCarRequest) : Resource<CarResponse>
     suspend fun deleteCar(deleteCar: DeleteCarRequest) : Resource<CarResponse>
     suspend fun getAllCar(getAllCar: GetAllCarRequest) : Resource<GetAllCarResponse>
+    suspend fun parkNPay(parkNPay: ParkNPayRequest) : Resource<ParkNPayResponse>
 }

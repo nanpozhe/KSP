@@ -51,4 +51,8 @@ class KSPRemoteDataSourceImpl @Inject constructor(
     override suspend fun getAllCar(getAllCar: GetAllCarRequest) : Response<GetAllCarResponse> {
         return kspApiService.getAllCar(getAllCar = getAllCar)
     }
+
+    override suspend fun parkNPay(parkNPay: ParkNPayRequest): Response<ParkNPayResponse> {
+        return kspApiService.parkNPay(parkNPay = parkNPay)
+    }
 }

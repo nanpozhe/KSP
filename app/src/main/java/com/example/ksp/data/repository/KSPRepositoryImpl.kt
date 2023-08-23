@@ -112,7 +112,7 @@ class KSPRepositoryImpl @Inject constructor(
         if(response.isSuccessful){
             if(response.body()?.success == true){
                 response.body()?.let { result ->
-                    Log.d("MainActivity", "${Resource.Success(result).data}")
+                    Log.d("MainActivity", "SCR -> ${Resource.Success(result).data}")
                     return Resource.Success(result)
                 }
             }
@@ -122,6 +122,19 @@ class KSPRepositoryImpl @Inject constructor(
     }
 
     private fun responseToCarData(response: Response<GetAllCarResponse>) : Resource<GetAllCarResponse>{
+        if(response.isSuccessful){
+            if(response.body()?.success == true){
+                response.body()?.let { result ->
+                    Log.d("MainActivity", "RTCD -> ${Resource.Success(result).data}")
+                    return Resource.Success(result)
+                }
+            }
+        }
+        Log.d("MainActivity", "${response.errorBody()?.string()}")
+        return Resource.Error(message = "${response.errorBody()?.string()}")
+    }
+
+    private fun simpleParkNPayResponse(response: Response<ParkNPayResponse>) : Resource<ParkNPayResponse>{
         if(response.isSuccessful){
             if(response.body()?.success == true){
                 response.body()?.let { result ->
@@ -173,5 +186,9 @@ class KSPRepositoryImpl @Inject constructor(
     }
     override suspend fun getAllCar(getAllCar: GetAllCarRequest) : Resource<GetAllCarResponse> {
         return responseToCarData(kspRemoteDataSource.getAllCar(getAllCar = getAllCar))
+    }
+
+    override suspend fun parkNPay(parkNPay: ParkNPayRequest): Resource<ParkNPayResponse> {
+        return simpleParkNPayResponse(kspRemoteDataSource.parkNPay(parkNPay = parkNPay))
     }
 }

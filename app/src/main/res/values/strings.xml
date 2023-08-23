@@ -149,4 +149,28 @@
     <string name="car_brand_hint">eg: PERODUA</string>
     <string name="car_dialog_title">Enter Car Details</string>
     <string name="car_dialog_edit_message"></string>
+    <string name="council_to_pay">Council to Pay: </string>
+    <string name="selected_vehicle">Selected vehicle: </string>
+    <string name="parking_duration">Parking Duration</string>
+    <string name="one_day_parking">One Day</string>
+    <string name="ten_hour_parking">One day parking is 10 hours per day.</string>
+    <string name="or">OR</string>
+    <string name="hourly">Hourly</string>
+    <string name="rate_per_hour">Rate per hour = RM1.00</string>
+    <string name="rate_per_30_min">Rate per 30min = RM0.50</string>
+    <string name="hour">Hour</string>
+    <string name="minutes">Minutes</string>
+    <string name="total_duration">Total Duration: </string>
+    <string name="park_pay_btn">Park Now</string>
+    <string name="no_car_selected">No Car Selected</string>
+    <string name="no_council_selected">No Council Selected</string>
+    <string name="duration">Duration:</string>
+    <string name="min_30">30 MIN</string>
+    <string name="hr_1">1 HR</string>
+    <string name="hr_1_min_30">1 HR 30 MIN</string>
+    <string name="hr_2">2 HR</string>
+    <string name="hr_2_min_30">2 HR 30 MIN</string>
+    <string name="hr_3">3 HR</string>
+    <string name="hr_3_min_30">3 HR 30 MIN</string>
+    <string name="hr_4">4 HR</string>
 </resources>

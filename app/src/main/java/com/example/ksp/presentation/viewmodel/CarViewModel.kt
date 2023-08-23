@@ -33,8 +33,8 @@ class CarViewModel @Inject constructor(
 
     private val _carInfo: MutableMap<String, Int> = mutableMapOf()
     val carInfo: Map<String, Int> = _carInfo
-    private val _keys = MutableLiveData<List<String>>(listOf())
-    val keys: LiveData<List<String>> = _keys
+    private val _keys: MutableList<String> = mutableListOf()
+    val keys: List<String> = _keys
 
     fun setCarColor(c: String){
         _carColor.value = c
@@ -107,12 +107,13 @@ class CarViewModel @Inject constructor(
                     _carInfo[result.data?.car_plate_3!!] = result.data.car_id_3
                     _carInfo[result.data?.car_plate_4!!] = result.data.car_id_4
                     _carInfo[result.data?.car_plate_5!!] = result.data.car_id_5
-                    _keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_1!!
-                    _keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_2!!
-                    _keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_3!!
-                    _keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_4!!
-                    _keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_5!!
-                    Log.d(TAG, "CarVM -> carInfo: ${carInfo.keys} + ${carInfo.values} |~~~| keys: ${keys.value}")
+                    _keys.clear()
+                    _keys.add(result.data?.car_plate_1)
+                    _keys.add(result.data?.car_plate_2)
+                    _keys.add(result.data?.car_plate_3)
+                    _keys.add(result.data?.car_plate_4)
+                    _keys.add(result.data?.car_plate_5)
+                    Log.d(TAG, "CarVM -> carInfo: ${carInfo.keys} + ${carInfo.values} |~~~| keys: ${keys}")
                 }
             }
         }.launchIn(viewModelScope)
@@ -120,6 +121,8 @@ class CarViewModel @Inject constructor(
 
     fun saveCarPlate(cp: String){
         sharedPreference.saveCarPlate(car_plate = cp)
+        val id = _carInfo[cp]
+        sharedPreference.saveCarId(id!!)
     }
 
     fun getCarPlate(): String{
@@ -130,4 +133,15 @@ class CarViewModel @Inject constructor(
         successful.postValue(null)
         error.postValue(null)
     }
+
 }
+/*
+way to add value into MutableLiveData<List<String>>
+//private val _keys = MutableLiveData<List<String>>(listOf())
+//val keys: LiveData<List<String>> = _keys
+_keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_1!!
+_keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_2!!
+_keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_3!!
+_keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_4!!
+_keys.value = (_keys.value ?: emptyList()) + result.data?.car_plate_5!!
+*/

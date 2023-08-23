@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.ParkPayFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.ksp.presentation.viewmodel.ParkPayViewModel" />
+        <variable
+            name="parkPayFragment"
+            type="com.example.ksp.presentation.ui.ParkPayFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:minWidth="1000dp"
+                android:maxWidth="1200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:maxHeight="120dp"
+                android:layout_margin="@dimen/setting_margin"
+                android:background="@drawable/custom_border"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/outline_info_24" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/light_grey"
+                    android:text="The parking fee for this council is "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple_500"
+                    android:text="@string/rate_per_hour"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple_500"
+                    android:text="@string/rate_per_30_min"/>
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:text="We encourage citizens to choose 'ONE-DAY' parking if plan to park more than 4 hours"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/council_selected_value"
+                android:layout_width="wrap_content"
+                android:minWidth="1000dp"
+                android:maxWidth="1200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:maxHeight="90dp"
+                app:icon="@drawable/ic_council"
+                app:iconTint="@color/black"
+                app:iconGravity="textStart"
+                android:text="@string/no_council_selected"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:elevation="0dp"
+                android:checkable="true"
+                app:cornerRadius="@dimen/setting_margin"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/light_grey"
+                android:layout_marginHorizontal="@dimen/setting_margin" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/vehicle_selected_value"
+                android:layout_width="wrap_content"
+                android:minWidth="1000dp"
+                android:maxWidth="1200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="70dp"
+                android:maxHeight="90dp"
+                app:icon="@drawable/ic_vehicle_icon"
+                app:iconTint="@color/black"
+                app:iconGravity="textStart"
+                android:text="@string/no_car_selected"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:elevation="0dp"
+                android:checkable="true"
+                app:cornerRadius="@dimen/setting_margin"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/light_grey"
+                android:layout_marginHorizontal="@dimen/setting_margin"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:minWidth="1000dp"
+                android:maxWidth="1200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/setting_margin"
+                android:paddingVertical="@dimen/car_plate_button_margin"
+                android:background="@drawable/custom_border">
+                <TextView
+                    android:id="@+id/duration_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/duration"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/min_30_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/min_30"
+                    android:layout_marginTop="10dp"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(30, 0.5, view)}"
+                    app:layout_constraintStart_toStartOf="@id/duration_textview"
+                    app:layout_constraintTop_toBottomOf="@id/duration_textview"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_1_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/hr_1"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(60, 1, view)}"
+                    app:layout_constraintStart_toEndOf="@id/min_30_button"
+                    app:layout_constraintTop_toTopOf="@id/min_30_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_1_min_30_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/hr_1_min_30"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(90, 1.5, view)}"
+                    app:layout_constraintStart_toEndOf="@id/hr_1_button"
+                    app:layout_constraintTop_toTopOf="@id/min_30_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_2_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hr_2"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(120, 2, view)}"
+                    app:layout_constraintStart_toStartOf="@id/min_30_button"
+                    app:layout_constraintTop_toBottomOf="@id/min_30_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_2_min_30_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/hr_2_min_30"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(150, 2.5, view)}"
+                    app:layout_constraintStart_toEndOf="@id/hr_2_button"
+                    app:layout_constraintTop_toTopOf="@id/hr_2_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_3_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/hr_3"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(180, 3, view)}"
+                    app:layout_constraintStart_toEndOf="@id/hr_2_min_30_button"
+                    app:layout_constraintTop_toTopOf="@id/hr_2_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_3_min_30_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hr_3_min_30"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(210, 3.5, view)}"
+                    app:layout_constraintStart_toStartOf="@id/min_30_button"
+                    app:layout_constraintTop_toBottomOf="@id/hr_2_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hr_4_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/hr_4"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(240, 4, view)}"
+                    app:layout_constraintStart_toEndOf="@id/hr_3_min_30_button"
+                    app:layout_constraintTop_toTopOf="@id/hr_3_min_30_button"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/one_day_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/one_day_parking"
+                    style="@style/ParkNPayDurationButton.Unchecked"
+                    android:onClick="@{(view) -> parkPayFragment.setDurationAmount(600, 6, view)}"
+                    app:layout_constraintStart_toEndOf="@id/hr_4_button"
+                    app:layout_constraintTop_toTopOf="@id/hr_3_min_30_button"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/park_now_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/park_pay_btn"
+                android:onClick="@{() -> parkPayFragment.payNow()}"/>
+        </LinearLayout>
+        <include
+            android:id="@+id/login_progress"
+            layout="@layout/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="46dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

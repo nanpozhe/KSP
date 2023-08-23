@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/setting_margin"
             android:layout_marginHorizontal="@dimen/setting_margin"
-            android:text="@string/confirm_btn"
+            android:text= "@string/create_car"
             android:textColor="@color/white"
             android:backgroundTint="@color/purple_700"
             app:layout_constraintStart_toStartOf="parent"

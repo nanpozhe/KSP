@@ -79,7 +79,7 @@ class SharedPreference @Inject constructor(
 
     fun deleteWalletID(): Boolean{
         sharedPreferences.edit().remove(Constants.WALLET_ID).apply()
-        return isUserTokenSaved()
+        return isWalletIDSaved()
     }
 
 
@@ -117,7 +117,7 @@ class SharedPreference @Inject constructor(
         sharedPreferences.edit().remove(Constants.COUNCIL_NAME_CHOSEN).apply()
         return councilNameIsSaved()
     }
-    /** COUNCIL #NAME# APP PREF **/
+    /** CAR #PLATE# APP PREF **/
     fun carPlateIsSaved(): Boolean {
         val token = sharedPreferences.getString(Constants.CAR_PLATE, null)
         return token != null
@@ -132,7 +132,25 @@ class SharedPreference @Inject constructor(
 
     fun deleteCarPlate(): Boolean {
         sharedPreferences.edit().remove(Constants.CAR_PLATE).apply()
-        return councilNameIsSaved()
+        return carPlateIsSaved()
+    }
+
+    /** CAR #ID# APP PREF **/
+    fun carIDIsSaved(): Boolean {
+        val token = sharedPreferences.getInt(Constants.CAR_ID, 0)
+        return token != null
+    }
+    fun getCarId(): Int{
+        return sharedPreferences.getInt(Constants.CAR_ID, 0)
+    }
+
+    fun saveCarId(car_plate: Int){
+        sharedPreferences.edit().putInt(Constants.CAR_ID, car_plate).apply()
+    }
+
+    fun deleteCarId(): Boolean {
+        sharedPreferences.edit().remove(Constants.CAR_ID).apply()
+        return carIDIsSaved()
     }
 
 }

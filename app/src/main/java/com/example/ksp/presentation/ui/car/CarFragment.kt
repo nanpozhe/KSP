@@ -58,16 +58,16 @@ class CarFragment : Fragment() {
             if(successful == true){
                 enablePage()
                 for(i in 0..4){
-                    Log.d("MainActivity", "getting button $i")
-                    if(viewModel.keys.value?.get(i)?.contentEquals("CREATE") == false){
+                    Log.d("MainActivity", "CarFragment -> getting button $i")
+                    if(viewModel.keys[i]?.contentEquals("CREATE") == false){
                         when(i) {
-                            0 -> carBinding?.carButton1?.text = viewModel.keys.value?.get(i)
-                            1 -> carBinding?.carButton2?.text = viewModel.keys.value?.get(i)
-                            2 -> carBinding?.carButton3?.text = viewModel.keys.value?.get(i)
-                            3 -> carBinding?.carButton4?.text = viewModel.keys.value?.get(i)
-                            4 -> carBinding?.carButton5?.text = viewModel.keys.value?.get(i)
+                            0 -> carBinding?.carButton1?.text = viewModel.keys[i]
+                            1 -> carBinding?.carButton2?.text = viewModel.keys[i]
+                            2 -> carBinding?.carButton3?.text = viewModel.keys[i]
+                            3 -> carBinding?.carButton4?.text = viewModel.keys[i]
+                            4 -> carBinding?.carButton5?.text = viewModel.keys[i]
                         }
-                    } else if(viewModel.keys.value?.get(i)?.contentEquals("CREATE") == true){
+                    } else if(viewModel.keys[i]?.contentEquals("CREATE") == true){
                         when(i) {
                             0 -> carBinding?.carButton1?.text = resources.getString(R.string.create_car)
                             1 -> carBinding?.carButton2?.text = resources.getString(R.string.create_car)
@@ -101,52 +101,47 @@ class CarFragment : Fragment() {
             R.id.car_button_1 ->
                 if ((view as Button).text.toString() == "Create" || (view as Button).text.toString() == "create" || (view as Button).text.toString() == "CREATE"){
                     Log.d("MainActivity", "CarFragment -> Showing dialog // ${(view as Button).text.toString()}")
-                    val dialogCarFragment = DialogCarFragment()
-                    dialogCarFragment.setStyle(STYLE_NO_FRAME, R.style.FullScreenDialog)
-                    dialogCarFragment.show(requireFragmentManager(), "Create New Car")
+                    showDialog()
                 } else {
                     Log.d("MainActivity", "CarFragment -> saving car plate // ${(view as Button).text.toString()}")
                     viewModel.saveCarPlate((view as Button).text.toString())
+                    carBinding?.carSelectedValue?.text = view.text.toString()
                 }
             R.id.car_button_2 ->
-                if ((view as Button).text.toString() == "CREATE"){
+                if ((view as Button).text.toString() == "Create" || (view as Button).text.toString() == "create" || (view as Button).text.toString() == "CREATE"){
                     Log.d("MainActivity", "CarFragment -> Showing dialog // ${(view as Button).text.toString()}")
-                    val dialogCarFragment = DialogCarFragment()
-                    dialogCarFragment.setStyle(STYLE_NO_FRAME, R.style.FullScreenDialog)
-                    dialogCarFragment.show(requireFragmentManager(), "Create New Car")
+                    showDialog()
                 } else {
                     Log.d("MainActivity", "CarFragment -> saving car plate // ${(view as Button).text.toString()}")
                     viewModel.saveCarPlate((view as Button).text.toString())
+                    carBinding?.carSelectedValue?.text = view.text.toString()
                 }
             R.id.car_button_3 ->
-                if ((view as Button).text.toString() == "CREATE"){
+                if ((view as Button).text.toString() == "Create" || (view as Button).text.toString() == "create" || (view as Button).text.toString() == "CREATE"){
                     Log.d("MainActivity", "CarFragment -> Showing dialog // ${(view as Button).text.toString()}")
-                    val dialogCarFragment = DialogCarFragment()
-                    dialogCarFragment.setStyle(STYLE_NO_FRAME, R.style.FullScreenDialog)
-                    dialogCarFragment.show(requireFragmentManager(), "Create New Car")
+                    showDialog()
                 } else {
                     Log.d("MainActivity", "CarFragment -> saving car plate // ${(view as Button).text.toString()}")
                     viewModel.saveCarPlate((view as Button).text.toString())
+                    carBinding?.carSelectedValue?.text = view.text.toString()
                 }
             R.id.car_button_4 ->
-                if ((view as Button).text.toString() == "CREATE"){
+                if ((view as Button).text.toString() == "Create" || (view as Button).text.toString() == "create" || (view as Button).text.toString() == "CREATE"){
                     Log.d("MainActivity", "CarFragment -> Showing dialog // ${(view as Button).text.toString()}")
-                    val dialogCarFragment = DialogCarFragment()
-                    dialogCarFragment.setStyle(STYLE_NO_FRAME, R.style.FullScreenDialog)
-                    dialogCarFragment.show(requireFragmentManager(), "Create New Car")
+                    showDialog()
                 } else {
                     Log.d("MainActivity", "CarFragment -> saving car plate // ${(view as Button).text.toString()}")
                     viewModel.saveCarPlate((view as Button).text.toString())
+                    carBinding?.carSelectedValue?.text = view.text.toString()
                 }
             R.id.car_button_5 ->
-                if ((view as Button).text.toString() == "CREATE"){
+                if ((view as Button).text.toString() == "Create" || (view as Button).text.toString() == "create" || (view as Button).text.toString() == "CREATE"){
                     Log.d("MainActivity", "CarFragment -> Showing dialog // ${(view as Button).text.toString()}")
-                    val dialogCarFragment = DialogCarFragment()
-                    dialogCarFragment.setStyle(STYLE_NO_FRAME, R.style.FullScreenDialog)
-                    dialogCarFragment.show(requireFragmentManager(), "Create New Car")
+                    showDialog()
                 } else {
                     Log.d("MainActivity", "CarFragment -> saving car plate // ${(view as Button).text.toString()}")
                     viewModel.saveCarPlate((view as Button).text.toString())
+                    carBinding?.carSelectedValue?.text = view.text.toString()
                 }
         }
     }
@@ -169,6 +164,12 @@ class CarFragment : Fragment() {
         } else {
             Snackbar.make(requireView(), "Empty car plate value", Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    private fun showDialog(){
+        val dialogCarFragment = DialogCarFragment()
+        dialogCarFragment.setStyle(STYLE_NO_FRAME, R.style.FullScreenDialog)
+        dialogCarFragment.show(requireFragmentManager(), "Create New Car")
     }
 
     private fun disablePage(){

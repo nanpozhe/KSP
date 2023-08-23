@@ -18,4 +18,5 @@ interface KSPRemoteDataSource {
     suspend fun editCar(editCar: EditCarRequest) : Response<CarResponse>
     suspend fun deleteCar(deleteCar: DeleteCarRequest) : Response<CarResponse>
     suspend fun getAllCar(getAllCar: GetAllCarRequest) : Response<GetAllCarResponse>
+    suspend fun parkNPay(parkNPay : ParkNPayRequest) : Response<ParkNPayResponse>
 }

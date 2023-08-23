@@ -77,6 +77,10 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
     }
 
+    fun toParkNPayPage(){
+        findNavController().navigate(R.id.action_homeFragment_to_parkPayFragment)
+    }
+
     fun toCouncilPage(){
         findNavController().navigate(R.id.action_homeFragment_to_councilFragment)
     }

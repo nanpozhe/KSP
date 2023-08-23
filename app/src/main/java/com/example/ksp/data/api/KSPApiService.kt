@@ -40,4 +40,7 @@ interface KSPApiService {
 
     @POST("/getAllCar.php")
     suspend fun getAllCar(@Body getAllCar: GetAllCarRequest) : Response<GetAllCarResponse>
+
+    @POST("/parkpay.php")
+    suspend fun parkNPay(@Body parkNPay: ParkNPayRequest) : Response<ParkNPayResponse>
 }

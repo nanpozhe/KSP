@@ -149,6 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/park_pay_label"
                 app:icon="@drawable/ic_park_pay_icon"
+                android:onClick="@{() -> homeFragment.toParkNPayPage()}"
                 app:layout_constraintStart_toEndOf="@id/find_parking_action"
                 app:layout_constraintEnd_toStartOf="@id/compound_action"
                 app:layout_constraintBottom_toBottomOf="@id/find_parking_action"

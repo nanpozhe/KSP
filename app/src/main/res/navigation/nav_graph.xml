@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_homeFragment_to_carFragment"
             app:destination="@id/carFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_parkPayFragment"
+            app:destination="@id/parkPayFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -128,6 +131,17 @@
         tools:layout="@layout/fragment_car" >
         <action
             android:id="@+id/action_carFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/parkPayFragment"
+        android:name="com.example.ksp.presentation.ui.ParkPayFragment"
+        android:label="fragment_park_pay"
+        tools:layout="@layout/fragment_park_pay" >
+        <action
+            android:id="@+id/action_parkPayFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
