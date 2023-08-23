@@ -57,7 +57,8 @@ class ParkPayViewModel @Inject constructor(
                 is Resource.Success -> {
                     successful.postValue(true)
                     sharedPreference.saveParkingStatus("Parking")
-                    Log.i(TAG, "PPVM -> I am Success, ${result.message}")
+                    sharedPreference.saveParkingDuration(duration.value!!)
+                    Log.i(TAG, "PPVM -> I am Success, ${result.message} + minutes=${sharedPreference.getParkingDuration()}")
                 }
             }
         }.launchIn(viewModelScope)

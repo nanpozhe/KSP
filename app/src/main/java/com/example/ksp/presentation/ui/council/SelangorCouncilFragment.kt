@@ -97,8 +97,12 @@ class SelangorCouncilFragment : Fragment() {
             val id = sharedViewModel.getCouncilIdFromApp()
             Log.d("MainActivity", "Perak fragment -> $name && $id")
             Snackbar.make(requireView(), "$name is selected.", Snackbar.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_selangorCouncilFragment_to_councilFragment)
-        }
+            toHomeFragment()
+    }
+
+    fun toHomeFragment(){
+        findNavController().navigate(R.id.action_selangorCouncilFragment_to_homeFragment)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         selangorCouncilBinding = null

@@ -161,7 +161,7 @@ class SharedPreference @Inject constructor(
         return token != null
     }
     fun getParkingStatus(): String{
-        return sharedPreferences.getString(Constants.PARKING_STATUS, null).toString()
+        return sharedPreferences.getString(Constants.PARKING_STATUS, "Not Parking").toString()
     }
     fun saveParkingStatus(status: String){
         sharedPreferences.edit().putString(Constants.PARKING_STATUS, status).apply()
@@ -169,5 +169,21 @@ class SharedPreference @Inject constructor(
     fun deleteParkingStatus(): Boolean {
         sharedPreferences.edit().remove(Constants.PARKING_STATUS).apply()
         return parkingStatusIsSaved()
+    }
+
+    /** PARKING DURATION APP PREF **/
+    fun parkingDurationIsSaved(): Boolean {
+        val token = sharedPreferences.getLong(Constants.PARKING_DURATION, 0)
+        return token != null
+    }
+    fun getParkingDuration(): Int{
+        return sharedPreferences.getInt(Constants.PARKING_DURATION, 0)
+    }
+    fun saveParkingDuration(duration: Int){
+        sharedPreferences.edit().putInt(Constants.PARKING_DURATION, duration).apply()
+    }
+    fun deleteParkingDuration(): Boolean {
+        sharedPreferences.edit().remove(Constants.PARKING_DURATION).apply()
+        return parkingDurationIsSaved()
     }
 }

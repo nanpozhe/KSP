@@ -112,4 +112,12 @@ class ParkPayFragment : Fragment() {
         id.setTextColor(resources.getColor(color.grey))
         id.setBackgroundColor(resources.getColor(color.white))
     }
+
+    fun toCarFragment(){
+        findNavController().navigate(R.id.action_parkPayFragment_to_carFragment)
+    }
+
+    fun toCouncilFragment(){
+        findNavController().navigate(R.id.action_parkPayFragment_to_councilFragment)
+    }
 }

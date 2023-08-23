@@ -11,4 +11,5 @@ object Constants {
     const val CAR_PLATE = "CAR_PLATE"                               // to store car plate selected
     const val CAR_ID = "CAR_ID"
     const val PARKING_STATUS = "PARKING_STATUS"
+    const val PARKING_DURATION = "PARKING_DURATION"                 // to record how long the duration is
 }

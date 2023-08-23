@@ -1,20 +1,19 @@
 package com.example.ksp.presentation.ui
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.view.inputmethod.InputMethodManager
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import androidx.core.content.ContextCompat
-import com.example.ksp.R
+import androidx.databinding.DataBindingUtil.setContentView
+import com.example.ksp.data.util.SharedPreference
 import com.example.ksp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject lateinit var sharedPreference: SharedPreference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,5 +32,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        sharedPreference.deleteParkingStatus()             // clear the parking status once the app has been restart in emulator
+        sharedPreference.deleteParkingDuration()
+        Log.d("MainActivity", "Clearing parking status and duration")
     }
 }

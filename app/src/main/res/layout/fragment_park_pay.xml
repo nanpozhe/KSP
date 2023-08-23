@@ -79,7 +79,8 @@
                 app:cornerRadius="@dimen/setting_margin"
                 app:strokeWidth="1dp"
                 app:strokeColor="@color/light_grey"
-                android:layout_marginHorizontal="@dimen/setting_margin" />
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:onClick="@{() -> parkPayFragment.toCouncilFragment()}"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/vehicle_selected_value"
                 android:layout_width="wrap_content"
@@ -99,7 +100,8 @@
                 app:cornerRadius="@dimen/setting_margin"
                 app:strokeWidth="1dp"
                 app:strokeColor="@color/light_grey"
-                android:layout_marginHorizontal="@dimen/setting_margin"/>
+                android:layout_marginHorizontal="@dimen/setting_margin"
+                android:onClick="@{() -> parkPayFragment.toCarFragment()}"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:minWidth="1000dp"

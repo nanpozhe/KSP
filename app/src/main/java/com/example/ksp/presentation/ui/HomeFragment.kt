@@ -2,6 +2,7 @@ package com.example.ksp.presentation.ui
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,18 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var homeViewModel: HomeViewModel
 
+    // variable for timer
+    val MINUTES_TO_MILLI_SECONDS = 60000L
+    lateinit var countdown_timer: CountDownTimer
+    var time_in_milli_seconds = 0L
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        time_in_milli_seconds = homeViewModel.getParkingDuration().toLong() * MINUTES_TO_MILLI_SECONDS
+        startTimer(time_in_milli_seconds)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +57,7 @@ class HomeFragment : Fragment() {
         // data bidding
         homeBinding.homeFragment = this
 
-        homeBinding.userFullName.text = homeViewModel.username
+        homeBinding.userFullName.text = homeViewModel.getUserName()
 
         // load wallet id
         homeViewModel.getWalletId()
@@ -109,5 +122,26 @@ class HomeFragment : Fragment() {
         homeBinding.loginProgress.loadingProgress.visibility = View.INVISIBLE
         homeBinding.statusLayout.isEnabled = true
         homeBinding.actionsLayout.isEnabled = true
+    }
+
+    /** timer function **/
+    fun startTimer(time_in_minutes: Long){
+        countdown_timer = object : CountDownTimer(time_in_minutes, 60000){
+            override fun onTick(p0: Long) {
+                time_in_milli_seconds = p0
+                updateTextUI()
+            }
+            override fun onFinish() {
+                homeViewModel.resetParking()
+            }
+        }
+        countdown_timer.start()
+    }
+
+    private fun updateTextUI(){
+        val minute = (time_in_milli_seconds / 1000) / 60
+        //val seconds = (time_in_milli_seconds / 1000) % 60
+
+        homeBinding.timeRemainingValue.text = "$minute minutes"
     }
 }

@@ -69,8 +69,13 @@ class PenangCouncilFragment : Fragment() {
             val id = sharedViewModel.getCouncilIdFromApp()
             Log.d("MainActivity", "Penang fragment -> $name && $id")
             Snackbar.make(requireView(), "$name is selected.", Snackbar.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_penangCouncilFragment_to_councilFragment)
-        }
+            toHomeFragment()
+    }
+
+    fun toHomeFragment(){
+        findNavController().navigate(R.id.action_penangCouncilFragment_to_homeFragment)
+    }
+
     /**
      * This fragment lifecycle method is called when the view hierarchy associated with the fragment
      * is being removed. As a result, clear out the binding object.

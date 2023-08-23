@@ -32,8 +32,6 @@ class HomeViewModel @Inject constructor(
     private val account_id = sharedPreference.getUserToken()
     private var wallet_id: Int = 0
 
-    val username = sharedPreference.getUserName()
-
     fun getWalletId(){
         if(account_id != 0){
             val walletRequest = GetWalletRequest(account_id)
@@ -81,6 +79,13 @@ class HomeViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
+    fun getParkingDuration(): Int{
+        return sharedPreference.getParkingDuration()
+    }
+    fun getUserName(): String{
+        return sharedPreference.getUserName()
+    }
+
     fun getParkingStatus(): String{
         return sharedPreference.getParkingStatus()
     }
@@ -93,5 +98,10 @@ class HomeViewModel @Inject constructor(
     fun navigateToPage(){
         balanceSuccessful.postValue(null)
         balanceError.postValue(null)
+    }
+
+    fun resetParking(){
+        sharedPreference.deleteParkingStatus()
+        sharedPreference.deleteParkingDuration()
     }
 }
