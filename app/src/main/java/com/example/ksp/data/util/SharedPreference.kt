@@ -15,6 +15,7 @@ class SharedPreference @Inject constructor(
         return sharedPreferences.edit().putBoolean(Constants.IS_FIRST_APP_LAUNCH, value).apply()
     }
 
+    /** USERNAME **/
     fun userIsLoggedIn(): Boolean{
         val token = sharedPreferences.getString(Constants.USER_IS_LOGGED_IN, null)
         return token != null
@@ -33,6 +34,7 @@ class SharedPreference @Inject constructor(
         return userIsLoggedIn()
     }
 
+    /** KEEP LOGGED IN token **/
     fun userKeepLoggedIn(): Boolean{
         val token = sharedPreferences.getString(Constants.USER_KEEP_LOGGED_IN, null)
         return token != null
@@ -46,7 +48,7 @@ class SharedPreference @Inject constructor(
         return sharedPreferences.getBoolean(Constants.USER_KEEP_LOGGED_IN, true)
     }
 
-    /** USER TOKEN **/
+    /** USER TOKEN or ACCOUNT ID **/
     fun isUserTokenSaved(): Boolean{
         val token = sharedPreferences.getInt(Constants.USER_TOKEN, 0)
         return token != 0
@@ -153,4 +155,19 @@ class SharedPreference @Inject constructor(
         return carIDIsSaved()
     }
 
+    /** PARKING STATUS APP PREF **/
+    fun parkingStatusIsSaved(): Boolean {
+        val token = sharedPreferences.getString(Constants.PARKING_STATUS, null)
+        return token != null
+    }
+    fun getParkingStatus(): String{
+        return sharedPreferences.getString(Constants.PARKING_STATUS, null).toString()
+    }
+    fun saveParkingStatus(status: String){
+        sharedPreferences.edit().putString(Constants.PARKING_STATUS, status).apply()
+    }
+    fun deleteParkingStatus(): Boolean {
+        sharedPreferences.edit().remove(Constants.PARKING_STATUS).apply()
+        return parkingStatusIsSaved()
+    }
 }

@@ -173,4 +173,6 @@
     <string name="hr_3">3 HR</string>
     <string name="hr_3_min_30">3 HR 30 MIN</string>
     <string name="hr_4">4 HR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

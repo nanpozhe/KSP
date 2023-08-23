@@ -81,6 +81,10 @@ class HomeViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
+    fun getParkingStatus(): String{
+        return sharedPreference.getParkingStatus()
+    }
+
     fun proceedToGetBalance(){
         walletIdSuccessful.postValue(null)
         walletIdError.postValue(null)

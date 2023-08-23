@@ -90,7 +90,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/ewallet_credit"/>
             <TextView
-                android:id="@+id/status_value"
+                android:id="@+id/parking_status_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dummy_status"
@@ -104,8 +104,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/time_remaining_label"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@id/status_value"
-                app:layout_constraintTop_toBottomOf="@id/status_value"/>
+                app:layout_constraintStart_toStartOf="@id/parking_status_value"
+                app:layout_constraintTop_toBottomOf="@id/parking_status_value"/>
             <TextView
                 android:id="@+id/time_remaining_value"
                 android:layout_width="wrap_content"
@@ -169,6 +169,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/season_pass_label"
+                android:onClick="@{() -> homeFragment.toSeasonPassPage()}"
                 app:icon="@drawable/ic_season_pass_icon"
                 app:layout_constraintStart_toEndOf="@id/compound_action"
                 app:layout_constraintBottom_toBottomOf="@id/find_parking_action"

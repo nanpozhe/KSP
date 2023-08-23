@@ -10,4 +10,5 @@ object Constants {
     const val COUNCIL_NAME_CHOSEN = "COUNCIL_NAME_CHOSEN"
     const val CAR_PLATE = "CAR_PLATE"                               // to store car plate selected
     const val CAR_ID = "CAR_ID"
+    const val PARKING_STATUS = "PARKING_STATUS"
 }

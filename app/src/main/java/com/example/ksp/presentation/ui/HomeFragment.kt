@@ -71,6 +71,8 @@ class HomeFragment : Fragment() {
                 enablePage()
             }
         }
+
+        homeBinding.parkingStatusValue.text = homeViewModel.getParkingStatus()
     }
 
     fun toSettingsPage(){
@@ -91,6 +93,10 @@ class HomeFragment : Fragment() {
 
     fun toVehiclePage(){
         findNavController().navigate(R.id.action_homeFragment_to_carFragment)
+    }
+
+    fun toSeasonPassPage(){
+        findNavController().navigate(R.id.action_homeFragment_to_seasonPassFragment)
     }
 
     private fun disablePage(){
