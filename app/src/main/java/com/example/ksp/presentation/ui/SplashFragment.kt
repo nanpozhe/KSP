@@ -36,11 +36,11 @@ class SplashFragment : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if(viewModel.loggedIn){
-                // is user has logged in and chose to keep logging in by default, to home page
-                Log.d("SplashActivity", "Directing to another activity, home fragment")
-                val intent = Intent(context, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                context?.startActivity(intent)
+                    // is user has logged in and chose to keep logging in by default, to home page
+                    Log.d("SplashActivity", "Directing to another activity, home fragment")
+                    val intent = Intent(context, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                    context?.startActivity(intent)
             } else {
                 // is user has not logged in, to login page
                 Log.d("SplashActivity", "Directing to login fragment")

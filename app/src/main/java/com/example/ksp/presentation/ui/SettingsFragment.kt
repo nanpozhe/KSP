@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.ksp.R
 import com.example.ksp.databinding.FragmentSettingsBinding
 import com.example.ksp.presentation.viewmodel.SettingsViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -63,8 +65,27 @@ class SettingsFragment : Fragment() {
     fun logout(){
         viewModel.unSaveUserLoggedIn()
         val intent = Intent(context, AuthActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        context?.startActivity(intent)
+    }
+
+    fun clearCache(){
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.clear_cache_dialog_title))
+            .setMessage(resources.getString(R.string.clear_cache_dialog_message))
+            .setNegativeButton("Cancel"){ dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("Confirm"){ dialog, which ->
+                val clr = viewModel.reset()
+                if(clr.successful){
+                    Snackbar.make(requireView(), "${clr.error}", Snackbar.LENGTH_LONG).show()
+                } else {
+                    Snackbar.make(requireView(), "${clr.error}", Snackbar.LENGTH_LONG).show()
+                }
+                dialog.dismiss()
+            }
+            .show()
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.ksp.data.util
 
 import android.content.SharedPreferences
+import com.example.ksp.data.model.ValidationResult
 import javax.inject.Inject
 
 class SharedPreference @Inject constructor(
@@ -185,5 +186,22 @@ class SharedPreference @Inject constructor(
     fun deleteParkingDuration(): Boolean {
         sharedPreferences.edit().remove(Constants.PARKING_DURATION).apply()
         return parkingDurationIsSaved()
+    }
+
+    /** RESET **/
+    fun reset(): ValidationResult{
+        val dlt1 = deleteUserToken()
+        val dlt2 = deleteAccessName()
+        val dlt3 = deleteWalletID()
+        val dlt4 = deleteCouncilSavedId()
+        val dlt5 = deleteCouncilSavedName()
+        val dlt6 = deleteCarId()
+        val dlt7 = deleteCarPlate()
+        val dlt8 = deleteParkingDuration()
+        val dlt9 = deleteParkingStatus()
+        if(!(dlt1 && dlt2 && dlt3 && dlt4 && dlt5 && dlt6 && dlt7 && dlt8 && dlt9)){
+            return ValidationResult(true, "Successfully clear")
+        }
+        return ValidationResult(false, "Unsuccessfully clear")
     }
 }

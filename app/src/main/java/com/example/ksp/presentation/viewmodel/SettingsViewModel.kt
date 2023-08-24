@@ -5,9 +5,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.ksp.data.model.ValidationResult
 import com.example.ksp.data.util.SharedPreference
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
@@ -15,13 +17,12 @@ class SettingsViewModel @Inject constructor(
     private val sharedPreference: SharedPreference
 ) : ViewModel() {
 
-    private val _userKeepLoggedIn = MutableLiveData<Boolean>()
-    val userKeepLoggedIn: LiveData<Boolean> = _userKeepLoggedIn
+    var userKeepLoggedIn by Delegates.notNull<Boolean>()
 
     private val userToken = sharedPreference.getUserName()
 
     fun initCheckUserLoggedInToggle() {
-        _userKeepLoggedIn.value = sharedPreference.getUserKeepLoggedIn()
+        userKeepLoggedIn = sharedPreference.getUserKeepLoggedIn()
     }
 
     fun unSaveUserLoggedIn(){
@@ -32,6 +33,10 @@ class SettingsViewModel @Inject constructor(
 
     fun changeUserKeepLoggedIn(choice: Boolean) {
         sharedPreference.saveUserKeepLoggedIn(choice)
-        _userKeepLoggedIn.value = choice
+        userKeepLoggedIn = choice
+    }
+
+    fun reset(): ValidationResult{
+        return sharedPreference.reset()
     }
 }

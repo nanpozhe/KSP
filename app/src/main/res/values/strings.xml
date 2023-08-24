@@ -47,10 +47,13 @@
     <string name="account_settings">Account Settings</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="password_setting">Password Settings</string>
+    <string name="language_setting">Language Settings</string>
     <string name="app_pref">App Preferences</string>
     <string name="clear_cache">Clear Cache</string>
     <string name="keep_logged_in">Keep Logged In</string>
     <string name="log_out">Logout</string>
+    <string name="clear_cache_dialog_title">Confirm to clear cache?</string>
+    <string name="clear_cache_dialog_message">By confirming to clear your cache, all your automatically saved settings will be removed completely. This will make your app slower than usual once you clear it.</string>
     <!-- States -->
     <string name="perlis">Perlis</string>
     <string name="kedah">Kedah</string>

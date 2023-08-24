@@ -61,7 +61,7 @@
             android:id="@+id/language_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password_setting"
+            android:text="@string/language_setting"
             style="@style/Widget.KedahSmartParking.Button.SettingsTextButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_pref_label"
@@ -75,8 +75,20 @@
             android:textSize="18dp"
             android:textColor="@color/black"
             android:padding="@dimen/setting_margin"
-            android:checked="@{viewModel.userKeepLoggedIn.equals(true)}"
-            android:onClick="@{()-> settingsFragment.checkUserLoggedIn()}"
+            android:enabled="false"
+            android:visibility="gone"
+            android:onCheckedChanged="@{()-> settingsFragment.checkUserLoggedIn()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/language_settings"
+            app:layout_constraintVertical_bias="0" />
+
+        <Button
+            android:id="@+id/clear_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_cache"
+            android:onClick="@{() -> settingsFragment.clearCache()}"
+            style="@style/Widget.KedahSmartParking.Button.SettingsTextButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/language_settings"
             app:layout_constraintVertical_bias="0" />
@@ -95,7 +107,7 @@
             android:padding="@dimen/setting_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/keep_logged_in"
+            app:layout_constraintTop_toBottomOf="@id/clear_cache"
             android:onClick="@{() -> settingsFragment.logout()}"/>
         <!--             -->
     </androidx.constraintlayout.widget.ConstraintLayout>
